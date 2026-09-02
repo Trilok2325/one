@@ -1,725 +1,708 @@
-#welcome to the Dashboard
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Trisun_Bloom — Amazon‑style UI</title>
-    <!-- Fonts & Icons -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Amazon+Ember&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <style>
-        /* ----- AMAZON INSPIRED RESET & VARIABLES ----- */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            font-family: 'Inter', 'Amazon Ember', sans-serif;
-            background: #eaeded;
-            color: #111;
-            line-height: 1.4;
-        }
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-        .container {
-            max-width: 1500px;
-            margin: 0 auto;
-            padding: 0 16px;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RailYatri · Book your train</title>
+  <!-- Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800;14..32,900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f2f4f8;
+      color: #1e293b;
+      padding: 20px;
+      line-height: 1.5;
+    }
+    .app-container {
+      max-width: 1280px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 32px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+      overflow: hidden;
+      padding: 24px 28px 40px;
+    }
+    /* header */
+    .header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 20px;
+      border-bottom: 1px solid #e9edf2;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .brand i {
+      font-size: 32px;
+      color: #d97706;
+      background: #fef3c7;
+      padding: 10px;
+      border-radius: 18px;
+    }
+    .brand h1 {
+      font-weight: 800;
+      font-size: 26px;
+      letter-spacing: -0.4px;
+      background: linear-gradient(145deg, #1e3a8a, #3b82f6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .brand small {
+      display: block;
+      font-weight: 400;
+      font-size: 13px;
+      color: #64748b;
+      -webkit-text-fill-color: #64748b;
+    }
+    .user-actions {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+    .user-actions .badge {
+      background: #eef2ff;
+      padding: 8px 16px;
+      border-radius: 40px;
+      font-weight: 600;
+      font-size: 14px;
+      color: #1e3a8a;
+    }
+    .user-actions .badge i {
+      margin-right: 6px;
+    }
+    .user-actions button {
+      background: #1e3a8a;
+      border: 0;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 40px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      transition: 0.2s;
+      font-size: 14px;
+      border: 1px solid transparent;
+    }
+    .user-actions button:hover {
+      background: #2563eb;
+      transform: scale(1.02);
+    }
 
-        /* ----- HEADER (AMAZON‑STYLE DARK) ----- */
-        .amazon-header {
-            background: #131a22;
-            color: white;
-            padding: 6px 0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
-        }
-        .header-row {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            flex-wrap: nowrap;
-            gap: 10px;
-        }
-        .logo-area {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            flex-shrink: 0;
-        }
-        .logo-area .brand {
-            font-family: 'Inter', sans-serif;
-            font-weight: 900;
-            font-size: 24px;
-            background: linear-gradient(135deg, #f9a8d4, #a78bfa, #fcd34d);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            letter-spacing: -0.5px;
-        }
-        .logo-area i {
-            font-size: 28px;
-            color: #f9a8d4;
-            -webkit-text-fill-color: initial;
-        }
-        .delivery-loc {
-            display: none;
-            padding: 0 8px;
-            font-size: 12px;
-            line-height: 1.2;
-            border-left: 1px solid #444;
-            flex-shrink: 0;
-        }
-        .delivery-loc .line1 { color: #ccc; }
-        .delivery-loc .line2 { font-weight: 700; color: white; }
-        .search-bar {
-            flex: 1;
-            display: flex;
-            align-items: center;
-            background: white;
-            border-radius: 8px;
-            overflow: hidden;
-            max-width: 800px;
-            min-width: 160px;
-            border: 2px solid transparent;
-            transition: 0.2s;
-        }
-        .search-bar:focus-within {
-            border-color: #f9a8d4;
-            box-shadow: 0 0 0 3px rgba(249,168,212,0.3);
-        }
-        .search-bar select {
-            background: #f3f3f3;
-            border: 0;
-            padding: 8px 6px;
-            font-size: 13px;
-            font-weight: 500;
-            color: #111;
-            cursor: pointer;
-            outline: none;
-            border-right: 1px solid #ccc;
-            width: 50px;
-            flex-shrink: 0;
-        }
-        .search-bar input {
-            flex: 1;
-            border: 0;
-            padding: 10px 12px;
-            font-size: 15px;
-            outline: none;
-            min-width: 80px;
-        }
-        .search-bar button {
-            background: #febd69;
-            border: 0;
-            padding: 8px 18px;
-            font-size: 18px;
-            color: #111;
-            cursor: pointer;
-            transition: 0.2s;
-            border-radius: 0 8px 8px 0;
-        }
-        .search-bar button:hover {
-            background: #f3a847;
-        }
-        .header-actions {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            flex-shrink: 0;
-        }
-        .header-actions .action-item {
-            padding: 6px 10px;
-            border-radius: 4px;
-            transition: 0.2s;
-            cursor: pointer;
-            font-size: 13px;
-            line-height: 1.2;
-            border: 1px solid transparent;
-        }
-        .header-actions .action-item:hover {
-            border-color: white;
-        }
-        .action-item .top { font-size: 11px; color: #ccc; }
-        .action-item .bottom { font-weight: 700; color: white; }
-        .cart-box {
-            display: flex;
-            align-items: center;
-            gap: 4px;
-            padding: 6px 10px;
-            position: relative;
-            font-weight: 700;
-        }
-        .cart-box i { font-size: 28px; }
-        .cart-count {
-            position: absolute;
-            top: -4px;
-            left: 22px;
-            background: #f08804;
-            color: #111;
-            font-size: 14px;
-            font-weight: 800;
-            padding: 0 5px;
-            border-radius: 30px;
-            line-height: 1.4;
-            min-width: 22px;
-            text-align: center;
-        }
-        .hamburger {
-            display: none;
-            font-size: 24px;
-            padding: 6px 10px;
-            cursor: pointer;
-        }
+    /* search card */
+    .search-card {
+      background: linear-gradient(135deg, #f8fafc, #eef2ff);
+      border-radius: 24px;
+      padding: 28px 30px;
+      margin: 24px 0 30px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+      border: 1px solid #e2e8f0;
+    }
+    .search-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px 20px;
+      align-items: flex-end;
+    }
+    .field-group {
+      flex: 1 0 160px;
+      min-width: 140px;
+    }
+    .field-group label {
+      display: block;
+      font-size: 13px;
+      font-weight: 600;
+      color: #334155;
+      margin-bottom: 5px;
+      letter-spacing: 0.3px;
+    }
+    .field-group input, .field-group select {
+      width: 100%;
+      padding: 12px 14px;
+      border-radius: 16px;
+      border: 1px solid #d1d9e6;
+      background: white;
+      font-size: 14px;
+      font-weight: 500;
+      transition: 0.2s;
+      outline: none;
+    }
+    .field-group input:focus, .field-group select:focus {
+      border-color: #3b82f6;
+      box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.15);
+    }
+    .search-btn {
+      background: #d97706;
+      border: 0;
+      color: white;
+      font-weight: 700;
+      padding: 12px 34px;
+      border-radius: 40px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 6px;
+      border: 1px solid #b45309;
+    }
+    .search-btn:hover {
+      background: #b45309;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 18px rgba(217, 119, 6, 0.25);
+    }
 
-        /* ----- SECONDARY NAV (AMAZON CATEGORIES) ----- */
-        .secondary-nav {
-            background: #232f3e;
-            color: white;
-            padding: 5px 0;
-            font-size: 14px;
-        }
-        .secondary-nav .nav-inner {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-            flex-wrap: wrap;
-        }
-        .secondary-nav .nav-inner a {
-            padding: 6px 4px;
-            font-weight: 500;
-            border-radius: 4px;
-            transition: 0.1s;
-        }
-        .secondary-nav .nav-inner a:hover {
-            border: 1px solid white;
-            padding: 5px 3px;
-        }
+    /* quick filters */
+    .quick-filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 28px;
+    }
+    .quick-filters .chip {
+      background: white;
+      padding: 8px 18px;
+      border-radius: 40px;
+      border: 1px solid #d1d9e6;
+      font-weight: 500;
+      font-size: 13px;
+      cursor: pointer;
+      transition: 0.15s;
+      color: #1e293b;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.02);
+    }
+    .quick-filters .chip i {
+      margin-right: 6px;
+      color: #3b82f6;
+    }
+    .quick-filters .chip:hover {
+      background: #eef2ff;
+      border-color: #3b82f6;
+    }
+    .quick-filters .chip.active {
+      background: #1e3a8a;
+      color: white;
+      border-color: #1e3a8a;
+    }
+    .quick-filters .chip.active i {
+      color: white;
+    }
 
-        /* ----- HERO BANNER (AMAZON CAROUSEL STYLE) ----- */
-        .hero-banner {
-            background: linear-gradient(145deg, #1e1035, #4c1d95);
-            border-radius: 0 0 28px 28px;
-            padding: 30px 20px 40px;
-            margin-bottom: 20px;
-            color: white;
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            justify-content: space-between;
-            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" opacity="0.1"><circle cx="20" cy="20" r="40" fill="%23f9a8d4"/><circle cx="80" cy="70" r="30" fill="%23a78bfa"/><circle cx="60" cy="10" r="20" fill="%23fcd34d"/></svg>');
-            background-size: cover;
-        }
-        .hero-banner h1 {
-            font-size: 32px;
-            font-weight: 900;
-            background: linear-gradient(135deg, #fcd34d, #f9a8d4);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        .hero-banner p { opacity: 0.9; max-width: 500px; }
-        .hero-banner .btn {
-            background: #febd69;
-            color: #111;
-            border: 0;
-            padding: 10px 28px;
-            border-radius: 30px;
-            font-weight: 700;
-            cursor: pointer;
-            transition: 0.2s;
-        }
-        .hero-banner .btn:hover { background: #f3a847; transform: scale(1.02); }
+    /* train list */
+    .section-title {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin: 12px 0 18px;
+    }
+    .section-title h2 {
+      font-weight: 700;
+      font-size: 22px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .section-title h2 i {
+      color: #d97706;
+    }
+    .section-title span {
+      color: #64748b;
+      font-size: 14px;
+    }
 
-        /* ----- PRODUCT GRID (AMAZON CARDS) ----- */
-        .section-title {
-            font-size: 26px;
-            font-weight: 700;
-            margin: 20px 0 12px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        .section-title span { background: linear-gradient(135deg, #a78bfa, #f9a8d4); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-        .grid { display: grid; gap: 20px; }
-        .products-grid { grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); }
+    .train-card {
+      background: white;
+      border-radius: 20px;
+      padding: 18px 22px;
+      margin-bottom: 14px;
+      border: 1px solid #e9edf2;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      transition: 0.2s;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+    }
+    .train-card:hover {
+      border-color: #b1c5e0;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.04);
+    }
+    .train-info {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 14px 30px;
+      flex: 2 1 300px;
+    }
+    .train-name {
+      font-weight: 700;
+      font-size: 17px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .train-name .code {
+      background: #dbeafe;
+      padding: 2px 12px;
+      border-radius: 40px;
+      font-size: 12px;
+      font-weight: 600;
+      color: #1e3a8a;
+    }
+    .route {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-weight: 500;
+      color: #334155;
+    }
+    .route i {
+      color: #94a3b8;
+      font-size: 14px;
+    }
+    .time-detail {
+      font-size: 14px;
+      color: #475569;
+    }
+    .time-detail strong {
+      color: #0f172a;
+    }
+    .seat-status {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+    .seat-badge {
+      background: #dcfce7;
+      color: #166534;
+      padding: 4px 14px;
+      border-radius: 40px;
+      font-weight: 600;
+      font-size: 13px;
+    }
+    .seat-badge.medium {
+      background: #fef9c3;
+      color: #854d0e;
+    }
+    .seat-badge.low {
+      background: #fee2e2;
+      color: #991b1b;
+    }
+    .price-tag {
+      font-weight: 800;
+      font-size: 20px;
+      color: #0f172a;
+      letter-spacing: -0.3px;
+    }
+    .price-tag small {
+      font-weight: 400;
+      font-size: 13px;
+      color: #64748b;
+    }
+    .book-btn {
+      background: #1e3a8a;
+      border: 0;
+      color: white;
+      padding: 10px 28px;
+      border-radius: 40px;
+      font-weight: 700;
+      font-size: 14px;
+      cursor: pointer;
+      transition: 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      border: 1px solid #1e3a8a;
+    }
+    .book-btn:hover {
+      background: #2563eb;
+      transform: scale(1.02);
+    }
+    .book-btn.outline {
+      background: transparent;
+      color: #1e3a8a;
+      border: 1px solid #1e3a8a;
+    }
+    .book-btn.outline:hover {
+      background: #eef2ff;
+    }
 
-        .product-card {
-            background: white;
-            border-radius: 12px;
-            padding: 16px 14px 18px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-            transition: 0.25s;
-            display: flex;
-            flex-direction: column;
-            border: 1px solid #e7e7e7;
-        }
-        .product-card:hover {
-            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
-            transform: translateY(-4px);
-            border-color: #a78bfa;
-        }
-        .product-card img {
-            width: 100%;
-            aspect-ratio: 1/1;
-            object-fit: cover;
-            background: #f7f7f7;
-            border-radius: 8px;
-            margin-bottom: 10px;
-        }
-        .product-card .title {
-            font-weight: 600;
-            font-size: 15px;
-            line-height: 1.3;
-            margin: 4px 0;
-            display: -webkit-box;
-            -webkit-line-clamp: 2;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-        }
-        .product-card .rating {
-            color: #f08804;
-            font-size: 14px;
-        }
-        .product-card .price-row {
-            display: flex;
-            align-items: baseline;
-            gap: 6px;
-            margin: 6px 0;
-        }
-        .product-card .price {
-            font-weight: 700;
-            font-size: 20px;
-        }
-        .product-card .old-price {
-            color: #565959;
-            font-size: 13px;
-            text-decoration: line-through;
-        }
-        .product-card .badge {
-            background: #fb7185;
-            color: white;
-            font-size: 11px;
-            font-weight: 800;
-            padding: 2px 12px;
-            border-radius: 30px;
-            display: inline-block;
-            align-self: flex-start;
-        }
-        .product-card .add-btn {
-            background: #febd69;
-            border: 0;
-            padding: 10px;
-            border-radius: 30px;
-            font-weight: 700;
-            cursor: pointer;
-            margin-top: 10px;
-            transition: 0.2s;
-            color: #111;
-        }
-        .product-card .add-btn:hover { background: #f3a847; }
+    /* booking summary panel */
+    .summary-panel {
+      margin-top: 32px;
+      background: #f8fafc;
+      border-radius: 24px;
+      padding: 22px 28px;
+      border: 1px solid #e2e8f0;
+      display: none;
+    }
+    .summary-panel.visible {
+      display: block;
+    }
+    .summary-panel h3 {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 18px;
+      margin-bottom: 14px;
+    }
+    .summary-panel .row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px 30px;
+    }
+    .summary-panel .col {
+      flex: 1 0 180px;
+    }
+    .summary-panel .label {
+      font-size: 13px;
+      color: #64748b;
+    }
+    .summary-panel .value {
+      font-weight: 700;
+      font-size: 16px;
+    }
+    .summary-panel .actions {
+      display: flex;
+      gap: 12px;
+      margin-top: 16px;
+      flex-wrap: wrap;
+    }
+    .summary-panel .actions button {
+      padding: 10px 26px;
+      border-radius: 40px;
+      font-weight: 600;
+      border: 0;
+      cursor: pointer;
+      transition: 0.15s;
+    }
+    .btn-confirm {
+      background: #d97706;
+      color: white;
+    }
+    .btn-confirm:hover {
+      background: #b45309;
+    }
+    .btn-cancel {
+      background: #e2e8f0;
+      color: #1e293b;
+    }
+    .btn-cancel:hover {
+      background: #cbd5e1;
+    }
 
-        /* ----- DEAL SECTION (AMAZON DEAL STYLE) ----- */
-        .deal-block {
-            background: white;
-            border-radius: 20px;
-            padding: 20px 24px;
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            gap: 24px;
-            border: 1px solid #ddd;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-            margin: 20px 0;
-        }
-        .deal-block img {
-            width: 200px;
-            height: 180px;
-            object-fit: cover;
-            border-radius: 16px;
-            flex-shrink: 0;
-        }
-        .deal-block .deal-content { flex: 1; }
-        .deal-block .deal-content h3 { font-size: 24px; }
-        .deal-block .timer {
-            display: flex;
-            gap: 12px;
-            margin: 12px 0;
-        }
-        .deal-block .time-box {
-            background: #131a22;
-            color: white;
-            padding: 6px 14px;
-            border-radius: 12px;
-            text-align: center;
-            min-width: 60px;
-        }
-        .deal-block .time-box div:first-child { font-size: 24px; font-weight: 800; }
-        .deal-block .time-box div:last-child { font-size: 11px; opacity: 0.7; }
-        .deal-discount {
-            background: #fb7185;
-            color: white;
-            padding: 4px 16px;
-            border-radius: 60px;
-            font-weight: 800;
-        }
-
-        /* ----- FOOTER (AMAZON STYLE) ----- */
-        .footer {
-            background: #131a22;
-            color: #ddd;
-            padding: 30px 0 20px;
-            margin-top: 30px;
-        }
-        .footer .footer-row {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            gap: 20px;
-        }
-        .footer .footer-col { min-width: 140px; }
-        .footer .footer-col h5 { color: white; font-weight: 700; margin-bottom: 8px; }
-        .footer .footer-col a { display: block; color: #ccc; font-size: 14px; padding: 2px 0; }
-        .footer .footer-col a:hover { text-decoration: underline; }
-
-        /* Responsive */
-        @media (max-width: 900px) {
-            .delivery-loc { display: none; }
-            .header-actions .action-item .top { display: none; }
-            .header-actions .action-item .bottom { font-size: 12px; }
-        }
-        @media (max-width: 700px) {
-            .hamburger { display: inline-block; }
-            .secondary-nav .nav-inner a { font-size: 12px; }
-            .search-bar select { display: none; }
-            .hero-banner h1 { font-size: 24px; }
-            .deal-block { flex-direction: column; text-align: center; }
-            .deal-block img { width: 100%; height: auto; max-height: 200px; }
-        }
-        @media (max-width: 500px) {
-            .header-actions .action-item { padding: 4px 6px; }
-            .cart-box i { font-size: 22px; }
-            .logo-area .brand { font-size: 18px; }
-        }
-        .muted { color: #565959; }
-        .text-center { text-align: center; }
-        .mt-12 { margin-top: 12px; }
-        .mb-8 { margin-bottom: 8px; }
-        .flex { display: flex; align-items: center; gap: 8px; }
-        .gap-12 { gap: 12px; }
-        .wrap { flex-wrap: wrap; }
-    </style>
+    /* responsive */
+    @media (max-width: 780px) {
+      .app-container { padding: 16px; }
+      .search-row { flex-direction: column; }
+      .train-card { flex-direction: column; align-items: stretch; gap: 12px; }
+      .train-info { flex-direction: column; align-items: flex-start; }
+      .seat-status { width: 100%; justify-content: space-between; }
+    }
+    @media (max-width: 480px) {
+      .brand h1 { font-size: 20px; }
+      .user-actions button { padding: 8px 14px; font-size: 13px; }
+    }
+    .text-muted { color: #64748b; }
+    .mt-8 { margin-top: 8px; }
+    .gap-6 { gap: 6px; }
+    .flex { display: flex; align-items: center; }
+  </style>
 </head>
 <body>
+<div class="app-container">
 
-<!-- HEADER (AMAZON STYLE) -->
-<header class="amazon-header">
-    <div class="container header-row">
-        <!-- hamburger + logo -->
-        <div class="logo-area">
-            <span class="hamburger" id="hamburgerBtn"><i class="fas fa-bars"></i></span>
-            <span class="brand"><i class="fas fa-seedling"></i> Trisun_Bloom</span>
-        </div>
-        <!-- delivery location (desktop) -->
-        <div class="delivery-loc">
-            <div class="line1">Deliver to</div>
-            <div class="line2"><i class="fas fa-map-marker-alt"></i> India</div>
-        </div>
-        <!-- search -->
-        <div class="search-bar">
-            <select><option>All</option></select>
-            <input type="search" id="searchInput" placeholder="Search Amazon-like..." />
-            <button id="searchBtn"><i class="fas fa-search"></i></button>
-        </div>
-        <!-- actions -->
-        <div class="header-actions">
-            <div class="action-item"><div class="top">Hello, Sign in</div><div class="bottom">Account & Lists</div></div>
-            <div class="action-item"><div class="top">Returns</div><div class="bottom">& Orders</div></div>
-            <div class="cart-box" id="cartBtn">
-                <i class="fas fa-shopping-cart"></i>
-                <span class="cart-count" id="cartCount">0</span>
-                <span style="font-size:14px;font-weight:700;">Cart</span>
-            </div>
-        </div>
+  <!-- HEADER -->
+  <header class="header">
+    <div class="brand">
+      <i class="fas fa-train-subway"></i>
+      <div>
+        <h1>RailYatri <small>book · travel · explore</small></h1>
+      </div>
     </div>
-    <!-- mobile menu (hidden by default) -->
-    <div id="mobileMenu" style="display:none; background:#232f3e; padding:12px 16px; border-top:1px solid #444;">
-        <div style="display:flex;flex-direction:column;gap:6px;color:white;">
-            <a href="#">Home</a>
-            <a href="#">Categories</a>
-            <a href="#">Trending</a>
-            <a href="#">Deals</a>
-            <a href="#">Your Orders</a>
-        </div>
+    <div class="user-actions">
+      <span class="badge"><i class="fas fa-ticket-alt"></i> My Bookings</span>
+      <button id="showSummaryBtn"><i class="fas fa-receipt"></i> Summary</button>
     </div>
-</header>
+  </header>
 
-<!-- SECONDARY NAV -->
-<div class="secondary-nav">
-    <div class="container nav-inner">
-        <a href="#"><i class="fas fa-bars"></i> All</a>
-        <a href="#">Today's Deals</a>
-        <a href="#">Customer Service</a>
-        <a href="#">Registry</a>
-        <a href="#">Gift Cards</a>
-        <a href="#">Sell</a>
-        <a href="#" style="margin-left:auto; background:#f9a8d4; padding:2px 14px; border-radius:20px; color:#111; font-weight:700;">Blooms</a>
+  <!-- SEARCH CARD -->
+  <div class="search-card">
+    <div class="search-row">
+      <div class="field-group">
+        <label><i class="fas fa-flag"></i> From</label>
+        <input type="text" id="fromStation" value="Mumbai Central" placeholder="Station" />
+      </div>
+      <div class="field-group">
+        <label><i class="fas fa-flag-checkered"></i> To</label>
+        <input type="text" id="toStation" value="Delhi Junction" placeholder="Station" />
+      </div>
+      <div class="field-group">
+        <label><i class="fas fa-calendar-day"></i> Date</label>
+        <input type="date" id="travelDate" value="2026-09-15" />
+      </div>
+      <div class="field-group">
+        <label><i class="fas fa-user"></i> Class</label>
+        <select id="classSelect">
+          <option value="all">All Classes</option>
+          <option value="sleeper">Sleeper</option>
+          <option value="ac3">AC 3 Tier</option>
+          <option value="ac2">AC 2 Tier</option>
+          <option value="first">First AC</option>
+        </select>
+      </div>
+      <button class="search-btn" id="searchTrainsBtn"><i class="fas fa-magnifying-glass"></i> Search</button>
     </div>
+  </div>
+
+  <!-- quick filters -->
+  <div class="quick-filters" id="filterChips">
+    <span class="chip active" data-filter="all"><i class="fas fa-list"></i> All</span>
+    <span class="chip" data-filter="sleeper"><i class="fas fa-bed"></i> Sleeper</span>
+    <span class="chip" data-filter="ac3"><i class="fas fa-couch"></i> AC 3</span>
+    <span class="chip" data-filter="ac2"><i class="fas fa-couch"></i> AC 2</span>
+    <span class="chip" data-filter="first"><i class="fas fa-crown"></i> First AC</span>
+  </div>
+
+  <!-- TRAIN LIST -->
+  <div class="section-title">
+    <h2><i class="fas fa-train"></i> Available Trains</h2>
+    <span id="trainCount">6 trains found</span>
+  </div>
+  <div id="trainList"></div>
+
+  <!-- BOOKING SUMMARY PANEL -->
+  <div class="summary-panel" id="summaryPanel">
+    <h3><i class="fas fa-circle-check" style="color:#22c55e;"></i> Booking summary</h3>
+    <div class="row">
+      <div class="col"><div class="label">Train</div><div class="value" id="summaryTrain">—</div></div>
+      <div class="col"><div class="label">Route</div><div class="value" id="summaryRoute">—</div></div>
+      <div class="col"><div class="label">Class</div><div class="value" id="summaryClass">—</div></div>
+      <div class="col"><div class="label">Passengers</div><div class="value" id="summaryPassengers">1</div></div>
+      <div class="col"><div class="label">Total</div><div class="value" id="summaryTotal">₹0</div></div>
+    </div>
+    <div class="actions">
+      <button class="btn-confirm" id="confirmBooking"><i class="fas fa-check"></i> Confirm booking</button>
+      <button class="btn-cancel" id="cancelBooking"><i class="fas fa-xmark"></i> Cancel</button>
+    </div>
+    <div id="bookingMessage" style="margin-top:14px;font-weight:500;color:#166534;display:none;"></div>
+  </div>
 </div>
 
-<main>
-    <!-- HERO BANNER -->
-    <section class="container hero-banner">
-        <div>
-            <h1>🌼 Bloom into Spring</h1>
-            <p>Fresh colours, vibrant tech, playful accessories — curated for your unique style.</p>
-            <button class="btn" id="shopNow">Shop Now <i class="fas fa-arrow-right"></i></button>
-        </div>
-        <div style="font-size:80px; opacity:0.2; filter:drop-shadow(0 8px 20px rgba(0,0,0,0.1));">🌸</div>
-    </section>
-
-    <!-- CATEGORIES (amazon style chips) -->
-    <section class="container">
-        <div class="section-title">📂 <span>Shop by Vibe</span></div>
-        <div class="grid" style="grid-template-columns:repeat(auto-fit, minmax(120px,1fr)); gap:12px;" id="categoriesGrid"></div>
-    </section>
-
-    <!-- PRODUCTS GRID -->
-    <section class="container">
-        <div class="section-title">🔥 <span>Trending Blooms</span></div>
-        <div class="grid products-grid" id="productsGrid"></div>
-    </section>
-
-    <!-- DEAL BLOCK -->
-    <section class="container" id="deals">
-        <div class="deal-block">
-            <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=600&q=80" alt="MacBook" />
-            <div class="deal-content">
-                <h3>MacBook Air M2 <span class="deal-discount" style="margin-left:10px;">BLOOM</span></h3>
-                <p class="muted">Supercharged by M2 — now in colourful vibes.</p>
-                <div class="timer">
-                    <div class="time-box"><div id="dealDays">0</div><div>Days</div></div>
-                    <div class="time-box"><div id="dealHours">00</div><div>Hrs</div></div>
-                    <div class="time-box"><div id="dealMinutes">00</div><div>Min</div></div>
-                    <div class="time-box"><div id="dealSeconds">00</div><div>Sec</div></div>
-                </div>
-                <div class="flex wrap gap-12">
-                    <span style="font-size:28px;font-weight:800;">$999</span>
-                    <span class="old-price" style="font-size:18px;">$1,199</span>
-                    <span class="deal-discount">-17%</span>
-                    <span style="font-weight:600;">Only <strong>12</strong> left</span>
-                </div>
-                <button class="btn" style="background:#febd69;color:#111;padding:10px 32px;border-radius:30px;font-weight:700;border:0;margin-top:10px;cursor:pointer;" id="buyDeal">Buy Now <i class="fas fa-bolt"></i></button>
-            </div>
-        </div>
-    </section>
-
-    <!-- TESTIMONIALS (mini) -->
-    <section class="container">
-        <div class="section-title">💬 <span>What our blooms say</span></div>
-        <div style="display:flex;gap:20px;overflow-x:auto;padding:8px 0 16px;" id="testimonials">
-            <div style="min-width:240px;background:white;padding:18px;border-radius:20px;border-left:8px solid #a78bfa;">
-                <div style="color:#f08804;">★★★★★</div>
-                <p>"Love the vibrant colours & fast delivery!"</p>
-                <strong>Ava M.</strong>
-            </div>
-            <div style="min-width:240px;background:white;padding:18px;border-radius:20px;border-left:8px solid #f9a8d4;">
-                <div style="color:#f08804;">★★★★☆</div>
-                <p>"Super fresh products, will order again."</p>
-                <strong>Michael L.</strong>
-            </div>
-        </div>
-    </section>
-
-    <!-- NEWSLETTER (amazon style) -->
-    <section class="container" style="background:#232f3e;border-radius:24px;padding:30px 20px;color:white;margin:20px 0;">
-        <div style="text-align:center;">
-            <h3>📬 Stay in bloom</h3>
-            <p style="opacity:0.8;">Get exclusive offers & new arrivals.</p>
-            <form id="newsletterForm" style="display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:12px;">
-                <input id="newsletterEmail" type="email" placeholder="Enter your email" style="padding:12px 20px;border-radius:40px;border:0;min-width:220px;flex:1;" required />
-                <button style="background:#febd69;color:#111;border:0;padding:12px 28px;border-radius:40px;font-weight:700;cursor:pointer;">Subscribe</button>
-            </form>
-            <div id="newsletterMsg" style="margin-top:12px;font-weight:500;display:none;"></div>
-        </div>
-    </section>
-</main>
-
-<!-- FOOTER (AMAZON STYLE) -->
-<footer class="footer">
-    <div class="container footer-row">
-        <div class="footer-col">
-            <h5>Trisun_Bloom</h5>
-            <a href="#">About</a>
-            <a href="#">Careers</a>
-            <a href="#">Press</a>
-        </div>
-        <div class="footer-col">
-            <h5>Support</h5>
-            <a href="#">Help</a>
-            <a href="#">Returns</a>
-            <a href="#">Contact</a>
-        </div>
-        <div class="footer-col">
-            <h5>Connect</h5>
-            <a href="#"><i class="fab fa-facebook"></i> Facebook</a>
-            <a href="#"><i class="fab fa-twitter"></i> Twitter</a>
-            <a href="#"><i class="fab fa-instagram"></i> Instagram</a>
-        </div>
-    </div>
-    <div style="text-align:center;margin-top:24px;color:#999;font-size:13px;">© <span id="year"></span> Trisun_Bloom. All rights reserved.</div>
-</footer>
-
 <script>
-    // ----- DATA (bloom themed) -----
-    const CATEGORIES = [
-        { id: 'phones', name: 'Smartphones', icon: 'fa-mobile-alt' },
-        { id: 'laptops', name: 'Laptops', icon: 'fa-laptop' },
-        { id: 'clothing', name: 'Clothing', icon: 'fa-tshirt' },
-        { id: 'gadgets', name: 'Gadgets', icon: 'fa-headphones' },
-        { id: 'footwear', name: 'Footwear', icon: 'fa-shoe-prints' },
-        { id: 'accessories', name: 'Accessories', icon: 'fa-watch' }
+  (function() {
+    // ----- DATA (train database) -----
+    const trains = [
+      { id: 1, name: 'Rajdhani Express', code: '12951', from: 'Mumbai Central', to: 'Delhi Junction', dep: '16:35', arr: '08:30', duration: '15h 55m', class: 'first', seats: 18, price: 4850, img: '🚄' },
+      { id: 2, name: 'Shatabdi Express', code: '12002', from: 'Mumbai Central', to: 'Delhi Junction', dep: '06:20', arr: '21:10', duration: '14h 50m', class: 'ac2', seats: 42, price: 2950, img: '🚅' },
+      { id: 3, name: 'Duronto Express', code: '12259', from: 'Mumbai Central', to: 'Delhi Junction', dep: '22:00', arr: '11:40', duration: '13h 40m', class: 'ac3', seats: 78, price: 2250, img: '🚆' },
+      { id: 4, name: 'Garib Rath', code: '12909', from: 'Mumbai Central', to: 'Delhi Junction', dep: '19:50', arr: '10:30', duration: '14h 40m', class: 'sleeper', seats: 120, price: 1250, img: '🚇' },
+      { id: 5, name: 'Tejas Express', code: '22119', from: 'Mumbai Central', to: 'Delhi Junction', dep: '09:10', arr: '23:45', duration: '14h 35m', class: 'ac3', seats: 52, price: 2350, img: '🚝' },
+      { id: 6, name: 'Humsafar Express', code: '12751', from: 'Mumbai Central', to: 'Delhi Junction', dep: '12:05', arr: '03:20', duration: '15h 15m', class: 'sleeper', seats: 88, price: 1350, img: '🚈' },
     ];
 
-    const PRODUCTS = [
-        { id:1, title:'iPhone 14 Pro Max', price:1099, oldPrice:1199, rating:5, reviews:128, badge:'✨ New', img:'https://images.unsplash.com/photo-1601784551446-20c9e07cdbdb?auto=format&fit=crop&w=300&q=80' },
-        { id:2, title:'MacBook Pro 14"', price:1999, rating:4, reviews:86, img:'https://images.unsplash.com/photo-1593642632823-8f785ba67e45?auto=format&fit=crop&w=300&q=80' },
-        { id:3, title:'Apple Watch S8', price:349, oldPrice:399, rating:5, reviews:214, badge:'🌈 -25%', img:'https://images.unsplash.com/photo-1529374255404-311a2a4f1fd9?auto=format&fit=crop&w=300&q=80' },
-        { id:4, title:'Nike Air Max 270', price:150, rating:4, reviews:53, img:'https://images.unsplash.com/photo-1542272604-787c3835535d?auto=format&fit=crop&w=300&q=80' },
-        { id:5, title:'Sony A7 IV', price:2499, rating:5, reviews:42, img:'https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?auto=format&fit=crop&w=300&q=80' },
-        { id:6, title:'Chanel No.5', price:120, rating:5, reviews:189, img:'https://images.unsplash.com/photo-1585386959984-a4155224a1ad?auto=format&fit=crop&w=300&q=80' },
-        { id:7, title:'Travel Backpack', price:79, oldPrice:99, rating:4, reviews:67, img:'https://images.unsplash.com/photo-1551232864-3f0890e580d9?auto=format&fit=crop&w=300&q=80' },
-        { id:8, title:'Sony WH-1000XM5', price:399, rating:5, reviews:156, img:'https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?auto=format&fit=crop&w=300&q=80' }
-    ];
+    // current selection
+    let selectedTrainId = null;
+    let passengerCount = 1;
 
-    // ----- RENDER -----
-    const categoriesGrid = document.getElementById('categoriesGrid');
-    const productsGrid = document.getElementById('productsGrid');
-    const cartCountEl = document.getElementById('cartCount');
-    const searchInput = document.getElementById('searchInput');
-    let cartCount = 0;
+    // DOM refs
+    const trainListEl = document.getElementById('trainList');
+    const trainCountEl = document.getElementById('trainCount');
+    const summaryPanel = document.getElementById('summaryPanel');
+    const summaryTrain = document.getElementById('summaryTrain');
+    const summaryRoute = document.getElementById('summaryRoute');
+    const summaryClass = document.getElementById('summaryClass');
+    const summaryPassengers = document.getElementById('summaryPassengers');
+    const summaryTotal = document.getElementById('summaryTotal');
+    const bookingMessage = document.getElementById('bookingMessage');
+    const filterChips = document.querySelectorAll('#filterChips .chip');
+    const searchBtn = document.getElementById('searchTrainsBtn');
+    const fromInput = document.getElementById('fromStation');
+    const toInput = document.getElementById('toStation');
+    const classSelect = document.getElementById('classSelect');
 
-    function renderCategories() {
-        categoriesGrid.innerHTML = '';
-        CATEGORIES.forEach(cat => {
-            const el = document.createElement('div');
-            el.style.cssText = 'background:white;border-radius:40px;padding:12px 8px;text-align:center;box-shadow:0 2px 8px rgba(0,0,0,0.05);cursor:pointer;border:1px solid #e7e7e7;transition:0.2s;';
-            el.innerHTML = `<i class="fas ${cat.icon}" style="font-size:24px;color:#a78bfa;"></i><div style="font-weight:600;font-size:13px;">${cat.name}</div>`;
-            el.addEventListener('click', () => {
-                searchInput.value = cat.name;
-                filterProducts(cat.name);
-            });
-            categoriesGrid.appendChild(el);
+    // Helper: render trains with optional filter
+    function renderTrains(filterClass = 'all', searchFrom = null, searchTo = null) {
+      let filtered = [...trains];
+      // filter by class
+      if (filterClass !== 'all') {
+        filtered = filtered.filter(t => t.class === filterClass);
+      }
+      // filter by station (if provided)
+      if (searchFrom) {
+        filtered = filtered.filter(t => t.from.toLowerCase().includes(searchFrom.toLowerCase()));
+      }
+      if (searchTo) {
+        filtered = filtered.filter(t => t.to.toLowerCase().includes(searchTo.toLowerCase()));
+      }
+
+      trainCountEl.textContent = filtered.length + ' trains found';
+
+      if (filtered.length === 0) {
+        trainListEl.innerHTML = `<div style="padding:30px;text-align:center;background:#f8fafc;border-radius:24px;color:#64748b;"><i class="fas fa-train" style="font-size:32px;opacity:0.4;display:block;margin-bottom:12px;"></i> No trains match your search</div>`;
+        return;
+      }
+
+      let html = '';
+      filtered.forEach(t => {
+        let seatLabel = 'Available';
+        let seatClass = '';
+        if (t.seats < 20) { seatLabel = 'Filling fast'; seatClass = 'low'; }
+        else if (t.seats < 50) { seatLabel = 'Limited'; seatClass = 'medium'; }
+        else { seatLabel = 'Available'; seatClass = ''; }
+
+        const isSelected = (selectedTrainId === t.id);
+        html += `
+          <div class="train-card" data-id="${t.id}" style="${isSelected ? 'border-color:#3b82f6;background:#f5f9ff;' : ''}">
+            <div class="train-info">
+              <div class="train-name">
+                ${t.img} ${t.name} <span class="code">${t.code}</span>
+              </div>
+              <div class="route">
+                <span>${t.from}</span> <i class="fas fa-arrow-right"></i> <span>${t.to}</span>
+              </div>
+              <div class="time-detail">
+                <strong>${t.dep}</strong> – <strong>${t.arr}</strong> <span class="text-muted">• ${t.duration}</span>
+              </div>
+            </div>
+            <div class="seat-status">
+              <span class="seat-badge ${seatClass}"><i class="fas fa-chair"></i> ${t.seats} seats</span>
+              <span class="seat-badge ${seatClass}">${seatLabel}</span>
+              <span class="price-tag">₹${t.price} <small>/ person</small></span>
+              <button class="book-btn ${isSelected ? 'outline' : ''}" data-id="${t.id}">
+                ${isSelected ? '✓ Selected' : 'Book now'} <i class="fas fa-chevron-right"></i>
+              </button>
+            </div>
+          </div>
+        `;
+      });
+      trainListEl.innerHTML = html;
+
+      // attach book button events
+      document.querySelectorAll('.train-card .book-btn').forEach(btn => {
+        btn.addEventListener('click', function(e) {
+          e.stopPropagation();
+          const id = parseInt(this.dataset.id);
+          selectTrain(id);
         });
-    }
+      });
 
-    function renderProducts(filter = '') {
-        productsGrid.innerHTML = '';
-        const list = filter ? PRODUCTS.filter(p => p.title.toLowerCase().includes(filter.toLowerCase()) || p.category?.includes(filter)) : PRODUCTS;
-        list.forEach(p => {
-            const card = document.createElement('div');
-            card.className = 'product-card';
-            const stars = '★'.repeat(p.rating) + '☆'.repeat(5-p.rating);
-            card.innerHTML = `
-                <img src="${p.img}" alt="${p.title}" loading="lazy" />
-                ${p.badge ? `<span class="badge">${p.badge}</span>` : ''}
-                <div class="title">${p.title}</div>
-                <div class="rating">${stars} ${p.reviews}</div>
-                <div class="price-row"><span class="price">$${p.price}</span>${p.oldPrice ? `<span class="old-price">$${p.oldPrice}</span>` : ''}</div>
-                <button class="add-btn" data-id="${p.id}">Add to Cart</button>
-            `;
-            const btn = card.querySelector('.add-btn');
-            btn.addEventListener('click', (e) => {
-                e.stopPropagation();
-                cartCount++;
-                cartCountEl.textContent = cartCount;
-                btn.textContent = 'Added ✓';
-                setTimeout(() => btn.textContent = 'Add to Cart', 800);
-            });
-            productsGrid.appendChild(card);
+      // click on card also selects
+      document.querySelectorAll('.train-card').forEach(card => {
+        card.addEventListener('click', function() {
+          const id = parseInt(this.dataset.id);
+          selectTrain(id);
         });
+      });
     }
 
-    function filterProducts(keyword) {
-        renderProducts(keyword);
+    // select train
+    function selectTrain(id) {
+      const train = trains.find(t => t.id === id);
+      if (!train) return;
+      selectedTrainId = id;
+      // re-render to highlight
+      const currentFilter = document.querySelector('#filterChips .chip.active')?.dataset.filter || 'all';
+      renderTrains(currentFilter, fromInput.value, toInput.value);
+      // update summary
+      summaryPanel.classList.add('visible');
+      summaryTrain.textContent = train.name + ' (' + train.code + ')';
+      summaryRoute.textContent = train.from + ' → ' + train.to;
+      summaryClass.textContent = train.class.toUpperCase();
+      summaryPassengers.textContent = passengerCount;
+      const total = train.price * passengerCount;
+      summaryTotal.textContent = '₹' + total.toLocaleString('en-IN');
+      bookingMessage.style.display = 'none';
     }
 
-    // search
-    document.getElementById('searchBtn').addEventListener('click', () => {
-        filterProducts(searchInput.value);
-    });
-    searchInput.addEventListener('keyup', (e) => {
-        if (e.key === 'Enter') filterProducts(searchInput.value);
-    });
-
-    // mobile toggle
-    document.getElementById('hamburgerBtn').addEventListener('click', () => {
-        const menu = document.getElementById('mobileMenu');
-        menu.style.display = menu.style.display === 'none' ? 'block' : 'none';
+    // filter chips
+    filterChips.forEach(chip => {
+      chip.addEventListener('click', function() {
+        filterChips.forEach(c => c.classList.remove('active'));
+        this.classList.add('active');
+        const filter = this.dataset.filter;
+        renderTrains(filter, fromInput.value, toInput.value);
+      });
     });
 
-    // deal timer
-    function dealTimer() {
-        let end = new Date();
-        end.setDate(end.getDate() + 2);
-        end.setHours(23, 59, 59);
-        function tick() {
-            const now = new Date();
-            const diff = Math.max(0, Math.floor((end - now) / 1000));
-            const d = Math.floor(diff / 86400);
-            const h = Math.floor((diff % 86400) / 3600);
-            const m = Math.floor((diff % 3600) / 60);
-            const s = diff % 60;
-            document.getElementById('dealDays').textContent = d;
-            document.getElementById('dealHours').textContent = String(h).padStart(2, '0');
-            document.getElementById('dealMinutes').textContent = String(m).padStart(2, '0');
-            document.getElementById('dealSeconds').textContent = String(s).padStart(2, '0');
+    // search button
+    searchBtn.addEventListener('click', function() {
+      const filter = document.querySelector('#filterChips .chip.active')?.dataset.filter || 'all';
+      renderTrains(filter, fromInput.value, toInput.value);
+    });
+
+    // Enter key on inputs triggers search
+    [fromInput, toInput, classSelect].forEach(el => {
+      el.addEventListener('keyup', (e) => { if (e.key === 'Enter') searchBtn.click(); });
+    });
+
+    // summary: confirm booking
+    document.getElementById('confirmBooking').addEventListener('click', function() {
+      if (!selectedTrainId) {
+        bookingMessage.style.display = 'block';
+        bookingMessage.innerHTML = '<i class="fas fa-circle-exclamation" style="color:#b45309;"></i> Please select a train first.';
+        bookingMessage.style.color = '#991b1b';
+        return;
+      }
+      const train = trains.find(t => t.id === selectedTrainId);
+      if (!train) return;
+      bookingMessage.style.display = 'block';
+      bookingMessage.innerHTML = `<i class="fas fa-circle-check" style="color:#16a34a;"></i> Booking confirmed for ${train.name} (${passengerCount} passenger${passengerCount > 1 ? 's' : ''}) · Total ₹${(train.price * passengerCount).toLocaleString('en-IN')}`;
+      bookingMessage.style.color = '#166534';
+      // optional: reset selection? no, keep it.
+    });
+
+    document.getElementById('cancelBooking').addEventListener('click', function() {
+      selectedTrainId = null;
+      summaryPanel.classList.remove('visible');
+      bookingMessage.style.display = 'none';
+      // re-render to remove highlight
+      const currentFilter = document.querySelector('#filterChips .chip.active')?.dataset.filter || 'all';
+      renderTrains(currentFilter, fromInput.value, toInput.value);
+    });
+
+    // toggle summary panel (show/hide)
+    document.getElementById('showSummaryBtn').addEventListener('click', function() {
+      if (summaryPanel.classList.contains('visible')) {
+        summaryPanel.classList.remove('visible');
+      } else {
+        if (selectedTrainId) {
+          summaryPanel.classList.add('visible');
+        } else {
+          alert('Please select a train first.');
         }
-        tick();
-        setInterval(tick, 1000);
-    }
-    dealTimer();
+      }
+    });
 
-    // year
-    document.getElementById('year').textContent = new Date().getFullYear();
+    // passenger count can be changed (simple increment/decrement via click on summary)
+    summaryPassengers.addEventListener('click', function() {
+      if (!selectedTrainId) return;
+      passengerCount = passengerCount === 1 ? 2 : (passengerCount === 2 ? 3 : 1);
+      const train = trains.find(t => t.id === selectedTrainId);
+      if (train) {
+        summaryPassengers.textContent = passengerCount;
+        summaryTotal.textContent = '₹' + (train.price * passengerCount).toLocaleString('en-IN');
+      }
+    });
 
     // init
-    renderCategories();
-    renderProducts();
-
-    // Cart button click alert (demo)
-    document.getElementById('cartBtn').addEventListener('click', (e) => {
-        e.preventDefault();
-        alert(`🛒 Cart has ${cartCount} item(s)`);
-    });
-
-    // Shop Now / Explore Deals
-    document.getElementById('shopNow').addEventListener('click', () => {
-        document.getElementById('productsGrid').scrollIntoView({ behavior: 'smooth' });
-    });
-    document.getElementById('buyDeal').addEventListener('click', () => {
-        alert('⚡ Flash deal added to cart!');
-        cartCount++;
-        cartCountEl.textContent = cartCount;
-    });
-
-    // Newsletter (simple)
-    document.getElementById('newsletterForm').addEventListener('submit', (e) => {
-        e.preventDefault();
-        const msg = document.getElementById('newsletterMsg');
-        msg.style.display = 'block';
-        msg.textContent = '✅ You\'re now in bloom! Check your inbox.';
-        msg.style.color = '#fcd34d';
-        document.getElementById('newsletterEmail').value = '';
-    });
+    renderTrains('all', 'Mumbai Central', 'Delhi Junction');
+  })();
 </script>
 </body>
 </html>
