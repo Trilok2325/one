@@ -3,33 +3,31 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>NexusShop — Colourful Vibe</title>
+    <title>Trisun_Bloom — Colourful E‑Commerce</title>
 
     <!-- Fonts & Icons -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <style>
-        /* ----- COLOURFUL ROOT ----- */
+        /* ----- COLOURFUL ROOT – Trisun_Bloom palette ----- */
         :root {
-            --bg: #faf6ff;
-            --primary: #1e1a3a;
-            --accent: #f9a8d4;
-            --accent2: #a78bfa;
-            --accent3: #6ee7b7;
-            --accent4: #fcd34d;
+            --bg: #fbf6ff;
+            --primary: #1e1035;
+            --bloom1: #f9a8d4;   /* soft pink */
+            --bloom2: #a78bfa;   /* lavender */
+            --bloom3: #6ee7b7;   /* mint */
+            --bloom4: #fcd34d;   /* sunshine */
+            --bloom5: #fb7185;   /* rose */
             --surface: #ffffff;
-            --muted: #6b5b7b;
-            --radius: 20px;
+            --muted: #5f4b6e;
+            --radius: 28px;
             --container: 1200px;
-            --shadow: 0 15px 35px rgba(120, 80, 200, 0.15);
-            --gradient-hero: linear-gradient(135deg, #1e1a3a 0%, #4c1d95 50%, #7e22ce 100%);
+            --shadow: 0 20px 40px -12px rgba(120, 80, 200, 0.20);
+            --gradient-hero: linear-gradient(145deg, #1e1035 0%, #4c1d95 40%, #7e22ce 100%);
         }
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-        }
+        * { box-sizing: border-box; margin: 0; }
 
         body {
             margin: 0;
@@ -47,14 +45,14 @@
             padding: 0 20px;
         }
 
-        /* ----- HEADER (glassy, colourful) ----- */
+        /* ----- HEADER – glassmorphism + bloom ----- */
         header {
             position: sticky;
             top: 0;
             z-index: 50;
-            background: rgba(255, 255, 255, 0.75);
+            background: rgba(255, 250, 255, 0.75);
             backdrop-filter: blur(16px) saturate(180%);
-            border-bottom: 2px solid rgba(167, 139, 250, 0.25);
+            border-bottom: 2px solid rgba(167, 139, 250, 0.20);
             box-shadow: 0 4px 30px rgba(167, 139, 250, 0.08);
         }
 
@@ -63,27 +61,29 @@
             align-items: center;
             justify-content: space-between;
             gap: 16px;
-            padding: 12px 0;
+            padding: 10px 0;
             flex-wrap: wrap;
         }
 
         .brand {
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
             font-family: 'Poppins', sans-serif;
-            font-weight: 800;
-            font-size: 24px;
-            background: linear-gradient(135deg, #a78bfa, #f9a8d4);
+            font-weight: 900;
+            font-size: 26px;
+            letter-spacing: -0.5px;
+            background: linear-gradient(135deg, var(--bloom2), var(--bloom1), var(--bloom4));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
 
         .brand i {
-            font-size: 28px;
-            color: #f9a8d4;
+            font-size: 30px;
+            color: var(--bloom1);
             -webkit-text-fill-color: initial;
+            filter: drop-shadow(0 4px 8px rgba(249, 168, 212, 0.3));
         }
 
         nav.main-nav ul {
@@ -99,8 +99,8 @@
             display: flex;
             gap: 6px;
             align-items: center;
-            padding: 8px 14px;
-            border-radius: 40px;
+            padding: 8px 16px;
+            border-radius: 60px;
             font-weight: 600;
             color: var(--primary);
             transition: 0.2s;
@@ -110,7 +110,7 @@
         nav.main-nav li a:hover {
             background: linear-gradient(135deg, #f3e8ff, #fce7f3);
             color: #7c3aed;
-            box-shadow: 0 4px 12px rgba(167, 139, 250, 0.2);
+            box-shadow: 0 4px 14px rgba(167, 139, 250, 0.25);
         }
 
         .search {
@@ -118,17 +118,17 @@
             align-items: center;
             gap: 8px;
             background: white;
-            padding: 6px 16px 6px 18px;
+            padding: 6px 16px 6px 20px;
             border-radius: 60px;
             border: 2px solid #e0d7f0;
-            min-width: 220px;
+            min-width: 210px;
             transition: 0.2s;
             box-shadow: 0 2px 8px rgba(0,0,0,0.02);
         }
 
         .search:focus-within {
-            border-color: #a78bfa;
-            box-shadow: 0 0 0 4px rgba(167, 139, 250, 0.2);
+            border-color: var(--bloom2);
+            box-shadow: 0 0 0 4px rgba(167, 139, 250, 0.15);
         }
 
         .search input {
@@ -168,38 +168,38 @@
             display: inline-flex;
             align-items: center;
             gap: 6px;
-            padding: 8px 12px;
-            border-radius: 40px;
+            padding: 8px 14px;
+            border-radius: 60px;
             background: linear-gradient(135deg, #f3e8ff, #fce7f3);
-            font-weight: 600;
+            font-weight: 700;
         }
 
         .cart-count {
             position: absolute;
             top: -8px;
             right: -8px;
-            background: #f43f5e;
+            background: var(--bloom5);
             color: white;
             font-size: 12px;
-            font-weight: 700;
+            font-weight: 800;
             width: 22px;
             height: 22px;
             border-radius: 50%;
             display: grid;
             place-items: center;
-            box-shadow: 0 4px 10px rgba(244, 63, 94, 0.4);
+            box-shadow: 0 4px 12px rgba(251, 113, 133, 0.4);
         }
 
         .mobile-toggle {
             display: none;
             border: 0;
             background: transparent;
-            font-size: 24px;
+            font-size: 26px;
             cursor: pointer;
             color: var(--primary);
         }
 
-        /* ----- HERO (colourful gradient + fun) ----- */
+        /* ----- HERO – Trisun_Bloom glow ----- */
         .hero {
             display: flex;
             align-items: center;
@@ -207,24 +207,24 @@
             text-align: center;
             background: var(--gradient-hero);
             background-size: 200% 200%;
-            animation: gradientShift 8s ease infinite alternate;
+            animation: gradientShift 10s ease infinite alternate;
             color: white;
-            min-height: 380px;
-            padding: 56px 20px;
-            border-radius: 0 0 40px 40px;
+            min-height: 360px;
+            padding: 48px 20px;
+            border-radius: 0 0 48px 48px;
             margin: 0 0 24px 0;
             position: relative;
             overflow: hidden;
         }
 
         .hero::after {
-            content: "✨";
+            content: "🌼";
             position: absolute;
-            font-size: 120px;
-            right: 5%;
-            bottom: -20px;
-            opacity: 0.2;
-            transform: rotate(12deg);
+            font-size: 140px;
+            right: 2%;
+            bottom: -30px;
+            opacity: 0.15;
+            transform: rotate(10deg);
         }
 
         @keyframes gradientShift {
@@ -235,99 +235,85 @@
 
         .hero h1 {
             font-family: 'Poppins', sans-serif;
-            font-size: 44px;
-            font-weight: 800;
+            font-size: 48px;
+            font-weight: 900;
             margin: 0 0 12px;
-            background: linear-gradient(135deg, #fcd34d, #f9a8d4, #a78bfa);
+            background: linear-gradient(135deg, var(--bloom4), var(--bloom1), var(--bloom2));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            letter-spacing: -0.02em;
         }
 
         .hero p {
             max-width: 700px;
-            margin: 0 auto 24px;
+            margin: 0 auto 28px;
             opacity: 0.95;
             font-size: 18px;
+            font-weight: 400;
         }
 
         .btn {
             display: inline-flex;
             align-items: center;
             gap: 10px;
-            padding: 12px 28px;
+            padding: 14px 32px;
             border-radius: 60px;
             font-weight: 700;
             border: 0;
             cursor: pointer;
-            transition: 0.2s;
+            transition: 0.25s;
             font-size: 16px;
         }
 
         .btn-primary {
-            background: linear-gradient(135deg, #fcd34d, #f9a8d4);
-            color: #1e1a3a;
-            box-shadow: 0 10px 20px -8px rgba(249, 168, 212, 0.4);
+            background: linear-gradient(135deg, var(--bloom4), var(--bloom1));
+            color: #1e1035;
+            box-shadow: 0 12px 24px -8px rgba(249, 168, 212, 0.4);
         }
 
         .btn-primary:hover {
-            transform: scale(1.04) translateY(-2px);
-            box-shadow: 0 16px 30px -6px rgba(249, 168, 212, 0.5);
+            transform: scale(1.04) translateY(-3px);
+            box-shadow: 0 20px 36px -8px rgba(249, 168, 212, 0.6);
         }
 
         .btn-ghost {
-            background: rgba(255,255,255,0.12);
-            backdrop-filter: blur(4px);
-            border: 2px solid rgba(255,255,255,0.25);
+            background: rgba(255,255,255,0.10);
+            backdrop-filter: blur(6px);
+            border: 2px solid rgba(255,255,255,0.20);
             color: white;
         }
 
         .btn-ghost:hover {
-            background: rgba(255,255,255,0.25);
+            background: rgba(255,255,255,0.20);
         }
 
-        /* ----- SECTION TITLES (colourful) ----- */
+        /* ----- SECTION TITLES (bloom) ----- */
         .section-title {
             font-family: 'Poppins', sans-serif;
-            font-weight: 700;
-            font-size: 32px;
+            font-weight: 800;
+            font-size: 34px;
             letter-spacing: -0.02em;
         }
 
         .section-title span {
-            background: linear-gradient(135deg, #a78bfa, #f9a8d4);
+            background: linear-gradient(135deg, var(--bloom2), var(--bloom1), var(--bloom4));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
 
-        .section {
-            padding: 32px 0 48px;
-        }
+        .section { padding: 32px 0 48px; }
+        .title { text-align: center; margin-bottom: 28px; }
+        .title p { color: var(--muted); font-weight: 500; }
 
-        .title {
-            text-align: center;
-            margin-bottom: 28px;
-        }
-
-        .title p {
-            color: var(--muted);
-            font-weight: 500;
-        }
-
-        /* ----- CATEGORIES (colourful cards) ----- */
-        .grid {
-            display: grid;
-            gap: 24px;
-        }
-
-        .categories {
-            grid-template-columns: repeat(6, 1fr);
-        }
+        /* ----- CATEGORIES (bloom cards) ----- */
+        .grid { display: grid; gap: 24px; }
+        .categories { grid-template-columns: repeat(6, 1fr); }
 
         .cat-card {
             background: white;
-            border-radius: 24px;
+            border-radius: 28px;
             padding: 24px 12px;
             text-align: center;
             box-shadow: var(--shadow);
@@ -338,39 +324,29 @@
 
         .cat-card:hover {
             transform: translateY(-10px) scale(1.02);
-            border-color: #a78bfa;
-            box-shadow: 0 25px 40px -12px rgba(167, 139, 250, 0.3);
+            border-color: var(--bloom2);
+            box-shadow: 0 30px 50px -12px rgba(167, 139, 250, 0.30);
         }
 
         .cat-card .icon {
-            font-size: 36px;
+            font-size: 38px;
             margin-bottom: 8px;
             display: inline-block;
-            background: linear-gradient(135deg, #a78bfa, #f9a8d4);
+            background: linear-gradient(135deg, var(--bloom2), var(--bloom1));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
 
-        .cat-card h4 {
-            margin: 8px 0 4px;
-            font-weight: 700;
-            color: var(--primary);
-        }
-
-        .cat-card .muted {
-            font-size: 13px;
-            color: var(--muted);
-        }
+        .cat-card h4 { margin: 8px 0 4px; font-weight: 700; }
+        .cat-card .muted { font-size: 13px; color: var(--muted); }
 
         /* ----- PRODUCTS (vibrant) ----- */
-        .products {
-            grid-template-columns: repeat(4, 1fr);
-        }
+        .products { grid-template-columns: repeat(4, 1fr); }
 
         .product {
             background: white;
-            border-radius: 24px;
+            border-radius: 28px;
             overflow: hidden;
             box-shadow: var(--shadow);
             transition: 0.25s ease;
@@ -380,9 +356,9 @@
         }
 
         .product:hover {
-            transform: translateY(-8px);
-            border-color: #f9a8d4;
-            box-shadow: 0 30px 40px -16px rgba(249, 168, 212, 0.25);
+            transform: translateY(-10px);
+            border-color: var(--bloom1);
+            box-shadow: 0 30px 50px -16px rgba(249, 168, 212, 0.30);
         }
 
         .product img {
@@ -393,16 +369,8 @@
             background: #f0ecf5;
         }
 
-        .product-body {
-            padding: 14px 16px 6px;
-            flex: 1;
-        }
-
-        .product h5 {
-            font-weight: 700;
-            font-size: 16px;
-            margin: 0 0 4px;
-        }
+        .product-body { padding: 14px 16px 6px; flex: 1; }
+        .product h5 { font-weight: 700; font-size: 16px; margin: 0 0 4px; }
 
         .price-row {
             display: flex;
@@ -412,25 +380,9 @@
             margin: 8px 0;
         }
 
-        .price {
-            font-weight: 800;
-            font-size: 20px;
-            color: #1e1a3a;
-        }
-
-        .old-price {
-            color: var(--muted);
-            text-decoration: line-through;
-            font-size: 14px;
-            margin-left: 6px;
-            font-weight: 500;
-        }
-
-        .rating {
-            color: #fbbf24;
-            font-size: 14px;
-            font-weight: 600;
-        }
+        .price { font-weight: 800; font-size: 20px; color: #1e1035; }
+        .old-price { color: var(--muted); text-decoration: line-through; font-size: 14px; margin-left: 6px; font-weight: 500; }
+        .rating { color: #fbbf24; font-size: 14px; font-weight: 600; }
 
         .product-footer {
             padding: 10px 16px 16px;
@@ -440,67 +392,54 @@
 
         .add-btn {
             flex: 1;
-            background: linear-gradient(135deg, #a78bfa, #8b5cf6);
+            background: linear-gradient(135deg, var(--bloom2), #8b5cf6);
             color: white;
             border: 0;
             padding: 10px;
-            border-radius: 40px;
+            border-radius: 60px;
             font-weight: 700;
             cursor: pointer;
             transition: 0.2s;
-            box-shadow: 0 6px 14px rgba(139, 92, 246, 0.3);
+            box-shadow: 0 6px 16px rgba(139, 92, 246, 0.25);
         }
 
         .add-btn:hover {
             transform: scale(1.02);
-            box-shadow: 0 10px 20px rgba(139, 92, 246, 0.4);
+            box-shadow: 0 12px 24px rgba(139, 92, 246, 0.35);
         }
 
         .wish-btn {
             background: #f3e8ff;
             border: 0;
-            padding: 8px 14px;
-            border-radius: 40px;
+            padding: 8px 16px;
+            border-radius: 60px;
             cursor: pointer;
             transition: 0.2s;
             color: #7c3aed;
         }
 
-        .wish-btn:hover {
-            background: #fce7f3;
-            color: #db2777;
-        }
+        .wish-btn:hover { background: #fce7f3; color: #db2777; }
 
-        /* ----- DEAL (colourful flash) ----- */
+        /* ----- DEAL (bloom flash) ----- */
         .deal {
             display: flex;
             gap: 20px;
             background: linear-gradient(135deg, #fdf2f8, #ede9fe);
-            border-radius: 32px;
+            border-radius: 40px;
             overflow: hidden;
             align-items: stretch;
-            border: 2px solid rgba(167, 139, 250, 0.2);
+            border: 2px solid rgba(167, 139, 250, 0.15);
             box-shadow: var(--shadow);
         }
 
-        .deal img {
-            width: 45%;
-            height: 300px;
-            object-fit: cover;
-        }
-
-        .deal .content {
-            padding: 32px 28px;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
+        .deal img { width: 45%; height: 280px; object-fit: cover; }
+        .deal .content { padding: 32px 28px; flex: 1; display: flex; flex-direction: column; justify-content: center; }
 
         .deal h3 {
             font-family: 'Poppins', sans-serif;
-            font-size: 28px;
+            font-size: 30px;
             margin: 0 0 6px;
+            font-weight: 800;
         }
 
         .timer {
@@ -510,36 +449,29 @@
         }
 
         .time-box {
-            background: #1e1a3a;
+            background: #1e1035;
             color: white;
-            padding: 12px 14px;
-            border-radius: 20px;
+            padding: 10px 14px;
+            border-radius: 24px;
             min-width: 70px;
             text-align: center;
             font-weight: 700;
             box-shadow: 0 8px 0 #4c1d95;
         }
 
-        .time-box div:first-child {
-            font-size: 26px;
-            font-weight: 800;
-        }
+        .time-box div:first-child { font-size: 26px; font-weight: 800; }
 
-        .deal .price {
-            font-size: 32px;
-            font-weight: 800;
-        }
-
+        .deal .price { font-size: 34px; font-weight: 800; }
         .deal-discount {
-            background: #f43f5e;
+            background: var(--bloom5);
             color: white;
-            padding: 6px 16px;
+            padding: 6px 18px;
             border-radius: 60px;
             font-weight: 800;
             font-size: 18px;
         }
 
-        /* ----- TESTIMONIALS (colourful) ----- */
+        /* ----- TESTIMONIALS ----- */
         .testimonials {
             display: flex;
             gap: 20px;
@@ -551,60 +483,58 @@
             min-width: 300px;
             background: white;
             padding: 24px;
-            border-radius: 28px;
+            border-radius: 32px;
             box-shadow: var(--shadow);
-            border-left: 8px solid #a78bfa;
+            border-left: 10px solid var(--bloom2);
         }
 
-        .testimonial .rating {
-            color: #fbbf24;
-            font-size: 18px;
-        }
+        .testimonial .rating { color: #fbbf24; font-size: 18px; }
 
-        /* ----- NEWSLETTER (colourful) ----- */
+        /* ----- NEWSLETTER (bloom) ----- */
         .newsletter {
-            background: linear-gradient(135deg, #1e1a3a, #4c1d95);
+            background: linear-gradient(145deg, #1e1035, #4c1d95);
             color: white;
-            border-radius: 40px;
+            border-radius: 48px;
             padding: 44px 28px;
             text-align: center;
-            box-shadow: 0 20px 40px -12px rgba(76, 29, 149, 0.4);
+            box-shadow: 0 24px 48px -12px rgba(76, 29, 149, 0.4);
         }
 
         .newsletter h3 {
             font-family: 'Poppins', sans-serif;
-            font-size: 32px;
+            font-size: 34px;
             margin: 0 0 8px;
         }
 
         .newsletter input {
-            padding: 14px 22px;
+            padding: 14px 24px;
             border-radius: 60px;
             border: 0;
             width: 320px;
             max-width: 100%;
             font-size: 16px;
-            background: rgba(255,255,255,0.12);
+            background: rgba(255,255,255,0.10);
             backdrop-filter: blur(4px);
             color: white;
-            border: 2px solid rgba(255,255,255,0.15);
+            border: 2px solid rgba(255,255,255,0.10);
         }
 
-        .newsletter input::placeholder {
-            color: rgba(255,255,255,0.6);
-        }
+        .newsletter input::placeholder { color: rgba(255,255,255,0.5); }
 
         .newsletter button {
-            background: linear-gradient(135deg, #fcd34d, #f9a8d4);
-            color: #1e1a3a;
+            background: linear-gradient(135deg, var(--bloom4), var(--bloom1));
+            color: #1e1035;
             border: 0;
-            padding: 14px 32px;
+            padding: 14px 36px;
             border-radius: 60px;
             font-weight: 700;
             cursor: pointer;
+            transition: 0.2s;
         }
 
-        /* ----- FOOTER (playful) ----- */
+        .newsletter button:hover { transform: scale(1.02); }
+
+        /* ----- FOOTER ----- */
         footer {
             margin-top: 20px;
             padding: 40px 0 24px;
@@ -623,11 +553,11 @@
             .mobile-toggle { display: inline-block; }
             .products { grid-template-columns: repeat(2, 1fr); }
             .categories { grid-template-columns: repeat(2, 1fr); }
-            .deal img { width: 40%; height: 220px; }
+            .deal img { width: 40%; height: 200px; }
         }
 
         @media (max-width: 600px) {
-            .hero h1 { font-size: 30px; }
+            .hero h1 { font-size: 32px; }
             .products { grid-template-columns: 1fr; }
             .categories { grid-template-columns: 1fr 1fr; }
             .deal { flex-direction: column; }
@@ -635,28 +565,28 @@
             .search { min-width: 140px; }
         }
 
-        /* small extras */
         .muted { color: var(--muted); }
         .text-center { text-align: center; }
-        .badge {
+        .badge-bloom {
             display: inline-block;
-            background: #f43f5e;
+            background: var(--bloom5);
             color: white;
-            font-size: 12px;
-            font-weight: 700;
-            padding: 4px 12px;
-            border-radius: 40px;
-            margin: 8px 0 0;
+            font-size: 11px;
+            font-weight: 800;
+            padding: 4px 14px;
+            border-radius: 60px;
+            margin: 6px 0 0;
         }
     </style>
 </head>
+
 <body>
 
 <header>
     <div class="container header-inner">
         <div style="display:flex;align-items:center;gap:12px;">
             <button class="mobile-toggle" id="mobileToggle" aria-label="Menu"><i class="fas fa-bars"></i></button>
-            <a class="brand" href="#"><i class="fas fa-gem"></i> Nexus<span style="background:linear-gradient(135deg,#f9a8d4,#a78bfa);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Shop</span></a>
+            <a class="brand" href="#"><i class="fas fa-seedling"></i> Trisun_Bloom</a>
         </div>
 
         <nav class="main-nav" id="mainNav">
@@ -670,7 +600,7 @@
 
         <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
             <div class="search">
-                <input type="search" id="searchInput" placeholder="Search colourful stuff..." />
+                <input type="search" id="searchInput" placeholder="Search blooms..." />
                 <button class="icon-btn" id="searchBtn"><i class="fas fa-search"></i></button>
             </div>
             <div class="header-actions">
@@ -701,8 +631,8 @@
     <!-- Hero -->
     <section class="hero">
         <div class="container">
-            <h1>✨ Colourful Winter Picks</h1>
-            <p>Bold hues, vibrant tech, and playful accessories — curated for your unique style.</p>
+            <h1>🌼 Bloom into Spring</h1>
+            <p>Fresh colours, vibrant tech, and playful accessories — curated for your unique style.</p>
             <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
                 <button class="btn btn-primary" id="shopNow">Shop Now <i class="fas fa-arrow-right"></i></button>
                 <button class="btn btn-ghost" id="exploreDeals">Explore Deals</button>
@@ -713,8 +643,8 @@
     <!-- Categories -->
     <section class="section container" aria-labelledby="cat-title">
         <div class="title">
-            <h2 class="section-title">🎨 <span>Shop by Vibe</span></h2>
-            <p class="muted">Find your colour — from tech to threads.</p>
+            <h2 class="section-title">🌸 <span>Shop by Vibe</span></h2>
+            <p class="muted">Find your bloom — from tech to threads.</p>
         </div>
         <div class="grid categories" id="categoriesGrid"></div>
     </section>
@@ -722,7 +652,7 @@
     <!-- Products -->
     <section class="section container" aria-labelledby="prod-title">
         <div class="title">
-            <h2 class="section-title">🔥 <span>Trending Now</span></h2>
+            <h2 class="section-title">🔥 <span>Trending Blooms</span></h2>
             <p class="muted">Popular picks with a pop of colour.</p>
         </div>
         <div class="grid products" id="productsGrid"></div>
@@ -731,13 +661,13 @@
     <!-- Deal -->
     <section id="deals" class="section container">
         <div class="title">
-            <h2 class="section-title">⚡ <span>Flash Sale</span></h2>
+            <h2 class="section-title">⚡ <span>Flash Bloom</span></h2>
             <p class="muted">Grab it before it fades!</p>
         </div>
         <div class="deal">
             <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=800&q=80" alt="MacBook Air M2">
             <div class="content">
-                <h3>MacBook Air M2 <span style="background:#f43f5e;color:white;font-size:14px;padding:4px 14px;border-radius:40px;margin-left:8px;">HOT</span></h3>
+                <h3>MacBook Air M2 <span style="background:#fb7185;color:white;font-size:14px;padding:4px 16px;border-radius:60px;margin-left:10px;">BLOOM</span></h3>
                 <p class="muted">Supercharged by M2 — now in colourful vibes.</p>
                 <div class="timer">
                     <div class="time-box"><div id="dealDays">0</div><div>Days</div></div>
@@ -759,7 +689,7 @@
     <section class="section container">
         <div class="title">
             <h2 class="section-title">💬 <span>Loved by many</span></h2>
-            <p class="muted">Real reviews, real colour.</p>
+            <p class="muted">Real reviews, real bloom.</p>
         </div>
         <div class="testimonials" id="testimonials">
             <div class="testimonial">
@@ -784,11 +714,11 @@
     <!-- Newsletter -->
     <section class="section container">
         <div class="newsletter">
-            <h3>📬 Stay colourful</h3>
+            <h3>📬 Stay in bloom</h3>
             <p>Get exclusive offers & new arrivals.</p>
             <form id="newsletterForm" style="display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:12px;">
                 <input id="newsletterEmail" type="email" placeholder="Enter your email" required />
-                <button class="btn btn-primary" id="subscribeBtn" style="background:linear-gradient(135deg,#fcd34d,#f9a8d4);color:#1e1a3a;">Subscribe</button>
+                <button class="btn btn-primary" id="subscribeBtn" style="background:linear-gradient(135deg,#fcd34d,#f9a8d4);color:#1e1035;">Subscribe</button>
             </form>
             <div id="newsletterMsg" style="margin-top:12px;font-weight:500;display:none;"></div>
         </div>
@@ -798,7 +728,7 @@
 <footer>
     <div class="container" style="display:flex;flex-wrap:wrap;gap:28px;justify-content:space-between;">
         <div>
-            <div style="font-weight:800;font-size:22px;background:linear-gradient(135deg,#a78bfa,#f9a8d4);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">NexusShop</div>
+            <div style="font-weight:900;font-size:24px;background:linear-gradient(135deg,#a78bfa,#f9a8d4,#fcd34d);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Trisun_Bloom</div>
             <p class="muted" style="max-width:280px;">Colourful e‑commerce demo — built with 💜 and gradients.</p>
             <div style="display:flex;gap:12px;margin-top:12px;">
                 <a class="icon-btn" href="#"><i class="fab fa-facebook"></i></a>
@@ -811,11 +741,11 @@
             <div><div style="font-weight:700;">Support</div><div class="muted" style="line-height:2;">Help<br>Returns<br>Contact</div></div>
         </div>
     </div>
-    <div style="text-align:center;margin-top:28px;color:var(--muted);font-size:14px;">© <span id="year"></span> NexusShop. All rights reserved.</div>
+    <div style="text-align:center;margin-top:28px;color:var(--muted);font-size:14px;">© <span id="year"></span> Trisun_Bloom. All rights reserved.</div>
 </footer>
 
 <script>
-    // ----- DATA (colourful) -----
+    // ----- DATA (bloom themed) -----
     const CATEGORIES = [
         { id: 'phones', name: 'Smartphones', icon: 'fa-mobile-alt' },
         { id: 'laptops', name: 'Laptops', icon: 'fa-laptop' },
@@ -856,4 +786,4 @@
             el.addEventListener('click', () => {
                 searchInput.value = cat.name;
                 filterProducts(cat.name);
-                window.scrollTo({ top
+                window.scrollTo({ top: document.getElementById('prod-title').offsetTop - 70, behavior: 'smooth
