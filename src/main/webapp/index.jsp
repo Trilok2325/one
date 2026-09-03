@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>RailYatri · Book your train</title>
+  <title>TTD · Tirumala Tirupati Devasthanam</title>
   <!-- Fonts & Icons -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800;14..32,900&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
@@ -15,8 +15,8 @@
     }
     body {
       font-family: 'Inter', sans-serif;
-      background: #f2f4f8;
-      color: #1e293b;
+      background: #f3f0ea;
+      color: #1e1b16;
       padding: 20px;
       line-height: 1.5;
     }
@@ -36,17 +36,17 @@
       justify-content: space-between;
       align-items: center;
       padding-bottom: 20px;
-      border-bottom: 1px solid #e9edf2;
+      border-bottom: 1px solid #e5ddd4;
     }
     .brand {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 12px;
     }
     .brand i {
       font-size: 32px;
-      color: #d97706;
-      background: #fef3c7;
+      color: #b76e2e;
+      background: #faeedb;
       padding: 10px;
       border-radius: 18px;
     }
@@ -54,17 +54,13 @@
       font-weight: 800;
       font-size: 26px;
       letter-spacing: -0.4px;
-      background: linear-gradient(145deg, #1e3a8a, #3b82f6);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
+      color: #4a2c1a;
     }
     .brand small {
       display: block;
       font-weight: 400;
       font-size: 13px;
-      color: #64748b;
-      -webkit-text-fill-color: #64748b;
+      color: #7a6452;
     }
     .user-actions {
       display: flex;
@@ -72,18 +68,19 @@
       gap: 18px;
     }
     .user-actions .badge {
-      background: #eef2ff;
+      background: #faeedb;
       padding: 8px 16px;
       border-radius: 40px;
       font-weight: 600;
       font-size: 14px;
-      color: #1e3a8a;
+      color: #4a2c1a;
     }
     .user-actions .badge i {
       margin-right: 6px;
+      color: #b76e2e;
     }
     .user-actions button {
-      background: #1e3a8a;
+      background: #4a2c1a;
       border: 0;
       color: white;
       padding: 10px 20px;
@@ -98,18 +95,18 @@
       border: 1px solid transparent;
     }
     .user-actions button:hover {
-      background: #2563eb;
+      background: #6b422a;
       transform: scale(1.02);
     }
 
-    /* search card */
+    /* search card — darshan booking */
     .search-card {
-      background: linear-gradient(135deg, #f8fafc, #eef2ff);
+      background: linear-gradient(135deg, #fcf6ed, #f5ede3);
       border-radius: 24px;
       padding: 28px 30px;
       margin: 24px 0 30px;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
-      border: 1px solid #e2e8f0;
+      border: 1px solid #e5ddd4;
     }
     .search-row {
       display: flex;
@@ -125,7 +122,7 @@
       display: block;
       font-size: 13px;
       font-weight: 600;
-      color: #334155;
+      color: #4a3a2a;
       margin-bottom: 5px;
       letter-spacing: 0.3px;
     }
@@ -133,7 +130,7 @@
       width: 100%;
       padding: 12px 14px;
       border-radius: 16px;
-      border: 1px solid #d1d9e6;
+      border: 1px solid #d6cdc0;
       background: white;
       font-size: 14px;
       font-weight: 500;
@@ -141,11 +138,11 @@
       outline: none;
     }
     .field-group input:focus, .field-group select:focus {
-      border-color: #3b82f6;
-      box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.15);
+      border-color: #b76e2e;
+      box-shadow: 0 0 0 4px rgba(183, 110, 46, 0.15);
     }
     .search-btn {
-      background: #d97706;
+      background: #b76e2e;
       border: 0;
       color: white;
       font-weight: 700;
@@ -158,15 +155,15 @@
       align-items: center;
       gap: 8px;
       margin-top: 6px;
-      border: 1px solid #b45309;
+      border: 1px solid #9a5a24;
     }
     .search-btn:hover {
-      background: #b45309;
+      background: #9a5a24;
       transform: translateY(-2px);
-      box-shadow: 0 8px 18px rgba(217, 119, 6, 0.25);
+      box-shadow: 0 8px 18px rgba(183, 110, 46, 0.25);
     }
 
-    /* quick filters */
+    /* quick filters — seva / darshan types */
     .quick-filters {
       display: flex;
       flex-wrap: wrap;
@@ -177,32 +174,32 @@
       background: white;
       padding: 8px 18px;
       border-radius: 40px;
-      border: 1px solid #d1d9e6;
+      border: 1px solid #d6cdc0;
       font-weight: 500;
       font-size: 13px;
       cursor: pointer;
       transition: 0.15s;
-      color: #1e293b;
+      color: #2d241c;
       box-shadow: 0 1px 2px rgba(0,0,0,0.02);
     }
     .quick-filters .chip i {
       margin-right: 6px;
-      color: #3b82f6;
+      color: #b76e2e;
     }
     .quick-filters .chip:hover {
-      background: #eef2ff;
-      border-color: #3b82f6;
+      background: #f5ede3;
+      border-color: #b76e2e;
     }
     .quick-filters .chip.active {
-      background: #1e3a8a;
+      background: #4a2c1a;
       color: white;
-      border-color: #1e3a8a;
+      border-color: #4a2c1a;
     }
     .quick-filters .chip.active i {
       color: white;
     }
 
-    /* train list */
+    /* train list → seva / darshan list */
     .section-title {
       display: flex;
       justify-content: space-between;
@@ -217,19 +214,19 @@
       gap: 8px;
     }
     .section-title h2 i {
-      color: #d97706;
+      color: #b76e2e;
     }
     .section-title span {
-      color: #64748b;
+      color: #7a6452;
       font-size: 14px;
     }
 
-    .train-card {
+    .seva-card {
       background: white;
       border-radius: 20px;
       padding: 18px 22px;
       margin-bottom: 14px;
-      border: 1px solid #e9edf2;
+      border: 1px solid #e5ddd4;
       display: flex;
       flex-wrap: wrap;
       align-items: center;
@@ -237,49 +234,49 @@
       transition: 0.2s;
       box-shadow: 0 2px 6px rgba(0,0,0,0.02);
     }
-    .train-card:hover {
-      border-color: #b1c5e0;
+    .seva-card:hover {
+      border-color: #c4b3a2;
       box-shadow: 0 6px 16px rgba(0, 0, 0, 0.04);
     }
-    .train-info {
+    .seva-info {
       display: flex;
       flex-wrap: wrap;
       align-items: center;
       gap: 14px 30px;
       flex: 2 1 300px;
     }
-    .train-name {
+    .seva-name {
       font-weight: 700;
       font-size: 17px;
       display: flex;
       align-items: center;
       gap: 8px;
     }
-    .train-name .code {
-      background: #dbeafe;
+    .seva-name .code {
+      background: #faeedb;
       padding: 2px 12px;
       border-radius: 40px;
       font-size: 12px;
       font-weight: 600;
-      color: #1e3a8a;
+      color: #4a2c1a;
     }
     .route {
       display: flex;
       align-items: center;
       gap: 6px;
       font-weight: 500;
-      color: #334155;
+      color: #4a3a2a;
     }
     .route i {
-      color: #94a3b8;
+      color: #b76e2e;
       font-size: 14px;
     }
     .time-detail {
       font-size: 14px;
-      color: #475569;
+      color: #5f4d3a;
     }
     .time-detail strong {
-      color: #0f172a;
+      color: #1e1b16;
     }
     .seat-status {
       display: flex;
@@ -288,15 +285,15 @@
       flex-wrap: wrap;
     }
     .seat-badge {
-      background: #dcfce7;
-      color: #166534;
+      background: #e9f0e7;
+      color: #2d5a2a;
       padding: 4px 14px;
       border-radius: 40px;
       font-weight: 600;
       font-size: 13px;
     }
     .seat-badge.medium {
-      background: #fef9c3;
+      background: #fef3c7;
       color: #854d0e;
     }
     .seat-badge.low {
@@ -306,16 +303,16 @@
     .price-tag {
       font-weight: 800;
       font-size: 20px;
-      color: #0f172a;
+      color: #1e1b16;
       letter-spacing: -0.3px;
     }
     .price-tag small {
       font-weight: 400;
       font-size: 13px;
-      color: #64748b;
+      color: #7a6452;
     }
     .book-btn {
-      background: #1e3a8a;
+      background: #4a2c1a;
       border: 0;
       color: white;
       padding: 10px 28px;
@@ -327,28 +324,28 @@
       display: flex;
       align-items: center;
       gap: 6px;
-      border: 1px solid #1e3a8a;
+      border: 1px solid #4a2c1a;
     }
     .book-btn:hover {
-      background: #2563eb;
+      background: #6b422a;
       transform: scale(1.02);
     }
     .book-btn.outline {
       background: transparent;
-      color: #1e3a8a;
-      border: 1px solid #1e3a8a;
+      color: #4a2c1a;
+      border: 1px solid #4a2c1a;
     }
     .book-btn.outline:hover {
-      background: #eef2ff;
+      background: #f5ede3;
     }
 
-    /* booking summary panel */
+    /* summary panel */
     .summary-panel {
       margin-top: 32px;
-      background: #f8fafc;
+      background: #fcf6ed;
       border-radius: 24px;
       padding: 22px 28px;
-      border: 1px solid #e2e8f0;
+      border: 1px solid #e5ddd4;
       display: none;
     }
     .summary-panel.visible {
@@ -371,7 +368,7 @@
     }
     .summary-panel .label {
       font-size: 13px;
-      color: #64748b;
+      color: #7a6452;
     }
     .summary-panel .value {
       font-weight: 700;
@@ -392,135 +389,137 @@
       transition: 0.15s;
     }
     .btn-confirm {
-      background: #d97706;
+      background: #b76e2e;
       color: white;
     }
     .btn-confirm:hover {
-      background: #b45309;
+      background: #9a5a24;
     }
     .btn-cancel {
-      background: #e2e8f0;
-      color: #1e293b;
+      background: #e5ddd4;
+      color: #1e1b16;
     }
     .btn-cancel:hover {
-      background: #cbd5e1;
+      background: #d6cdc0;
     }
 
     /* responsive */
     @media (max-width: 780px) {
       .app-container { padding: 16px; }
       .search-row { flex-direction: column; }
-      .train-card { flex-direction: column; align-items: stretch; gap: 12px; }
-      .train-info { flex-direction: column; align-items: flex-start; }
+      .seva-card { flex-direction: column; align-items: stretch; gap: 12px; }
+      .seva-info { flex-direction: column; align-items: flex-start; }
       .seat-status { width: 100%; justify-content: space-between; }
     }
     @media (max-width: 480px) {
       .brand h1 { font-size: 20px; }
       .user-actions button { padding: 8px 14px; font-size: 13px; }
     }
-    .text-muted { color: #64748b; }
+    .text-muted { color: #7a6452; }
     .mt-8 { margin-top: 8px; }
     .gap-6 { gap: 6px; }
     .flex { display: flex; align-items: center; }
+
+    /* TTD style highlight */
+    .temple-icon {
+      color: #b76e2e;
+    }
+    .gold-bg {
+      background: #faeedb;
+    }
   </style>
 </head>
 <body>
 <div class="app-container">
 
-  <!-- HEADER -->
+  <!-- HEADER : TTD style -->
   <header class="header">
     <div class="brand">
-      <i class="fas fa-train-subway"></i>
+      <i class="fas fa-temple-hindu"></i>
       <div>
-        <h1>RailYatri <small>book · travel · explore</small></h1>
+        <h1>Tirumala <small>TTD · Sri Venkateswara</small></h1>
       </div>
     </div>
     <div class="user-actions">
-      <span class="badge"><i class="fas fa-ticket-alt"></i> My Bookings</span>
+      <span class="badge"><i class="fas fa-ticket-alt"></i> My Sevas</span>
       <button id="showSummaryBtn"><i class="fas fa-receipt"></i> Summary</button>
     </div>
   </header>
 
-  <!-- SEARCH CARD -->
+  <!-- DARSHAN BOOKING CARD -->
   <div class="search-card">
     <div class="search-row">
       <div class="field-group">
-        <label><i class="fas fa-flag"></i> From</label>
-        <input type="text" id="fromStation" value="Mumbai Central" placeholder="Station" />
-      </div>
-      <div class="field-group">
-        <label><i class="fas fa-flag-checkered"></i> To</label>
-        <input type="text" id="toStation" value="Delhi Junction" placeholder="Station" />
+        <label><i class="fas fa-map-pin"></i> Seva / Darshan</label>
+        <input type="text" id="fromStation" value="Tirumala" placeholder="Seva name" />
       </div>
       <div class="field-group">
         <label><i class="fas fa-calendar-day"></i> Date</label>
-        <input type="date" id="travelDate" value="2026-09-15" />
+        <input type="date" id="travelDate" value="2026-09-20" />
       </div>
       <div class="field-group">
-        <label><i class="fas fa-user"></i> Class</label>
+        <label><i class="fas fa-user"></i> Devotees</label>
         <select id="classSelect">
-          <option value="all">All Classes</option>
-          <option value="sleeper">Sleeper</option>
-          <option value="ac3">AC 3 Tier</option>
-          <option value="ac2">AC 2 Tier</option>
-          <option value="first">First AC</option>
+          <option value="all">All Sevas</option>
+          <option value="suprabhatam">Suprabhatam</option>
+          <option value="sahasranam">Sahasranam</option>
+          <option value="archana">Archana</option>
+          <option value="kalyanam">Kalyanam</option>
         </select>
       </div>
       <button class="search-btn" id="searchTrainsBtn"><i class="fas fa-magnifying-glass"></i> Search</button>
     </div>
   </div>
 
-  <!-- quick filters -->
+  <!-- quick filters – seva types -->
   <div class="quick-filters" id="filterChips">
-    <span class="chip active" data-filter="all"><i class="fas fa-list"></i> All</span>
-    <span class="chip" data-filter="sleeper"><i class="fas fa-bed"></i> Sleeper</span>
-    <span class="chip" data-filter="ac3"><i class="fas fa-couch"></i> AC 3</span>
-    <span class="chip" data-filter="ac2"><i class="fas fa-couch"></i> AC 2</span>
-    <span class="chip" data-filter="first"><i class="fas fa-crown"></i> First AC</span>
+    <span class="chip active" data-filter="all"><i class="fas fa-list"></i> All Sevas</span>
+    <span class="chip" data-filter="suprabhatam"><i class="fas fa-sun"></i> Suprabhatam</span>
+    <span class="chip" data-filter="sahasranam"><i class="fas fa-om"></i> Sahasranam</span>
+    <span class="chip" data-filter="archana"><i class="fas fa-leaf"></i> Archana</span>
+    <span class="chip" data-filter="kalyanam"><i class="fas fa-ring"></i> Kalyanam</span>
   </div>
 
-  <!-- TRAIN LIST -->
+  <!-- SEVA LIST -->
   <div class="section-title">
-    <h2><i class="fas fa-train"></i> Available Trains</h2>
-    <span id="trainCount">6 trains found</span>
+    <h2><i class="fas fa-temple-hindu"></i> Available Sevas</h2>
+    <span id="trainCount">6 sevas found</span>
   </div>
   <div id="trainList"></div>
 
-  <!-- BOOKING SUMMARY PANEL -->
+  <!-- BOOKING SUMMARY -->
   <div class="summary-panel" id="summaryPanel">
-    <h3><i class="fas fa-circle-check" style="color:#22c55e;"></i> Booking summary</h3>
+    <h3><i class="fas fa-circle-check" style="color:#b76e2e;"></i> Seva summary</h3>
     <div class="row">
-      <div class="col"><div class="label">Train</div><div class="value" id="summaryTrain">—</div></div>
-      <div class="col"><div class="label">Route</div><div class="value" id="summaryRoute">—</div></div>
-      <div class="col"><div class="label">Class</div><div class="value" id="summaryClass">—</div></div>
-      <div class="col"><div class="label">Passengers</div><div class="value" id="summaryPassengers">1</div></div>
+      <div class="col"><div class="label">Seva</div><div class="value" id="summaryTrain">—</div></div>
+      <div class="col"><div class="label">Temple</div><div class="value" id="summaryRoute">Tirumala</div></div>
+      <div class="col"><div class="label">Category</div><div class="value" id="summaryClass">—</div></div>
+      <div class="col"><div class="label">Devotees</div><div class="value" id="summaryPassengers">1</div></div>
       <div class="col"><div class="label">Total</div><div class="value" id="summaryTotal">₹0</div></div>
     </div>
     <div class="actions">
-      <button class="btn-confirm" id="confirmBooking"><i class="fas fa-check"></i> Confirm booking</button>
+      <button class="btn-confirm" id="confirmBooking"><i class="fas fa-check"></i> Confirm Seva</button>
       <button class="btn-cancel" id="cancelBooking"><i class="fas fa-xmark"></i> Cancel</button>
     </div>
-    <div id="bookingMessage" style="margin-top:14px;font-weight:500;color:#166534;display:none;"></div>
+    <div id="bookingMessage" style="margin-top:14px;font-weight:500;color:#2d5a2a;display:none;"></div>
   </div>
 </div>
 
 <script>
   (function() {
-    // ----- DATA (train database) -----
-    const trains = [
-      { id: 1, name: 'Rajdhani Express', code: '12951', from: 'Mumbai Central', to: 'Delhi Junction', dep: '16:35', arr: '08:30', duration: '15h 55m', class: 'first', seats: 18, price: 4850, img: '🚄' },
-      { id: 2, name: 'Shatabdi Express', code: '12002', from: 'Mumbai Central', to: 'Delhi Junction', dep: '06:20', arr: '21:10', duration: '14h 50m', class: 'ac2', seats: 42, price: 2950, img: '🚅' },
-      { id: 3, name: 'Duronto Express', code: '12259', from: 'Mumbai Central', to: 'Delhi Junction', dep: '22:00', arr: '11:40', duration: '13h 40m', class: 'ac3', seats: 78, price: 2250, img: '🚆' },
-      { id: 4, name: 'Garib Rath', code: '12909', from: 'Mumbai Central', to: 'Delhi Junction', dep: '19:50', arr: '10:30', duration: '14h 40m', class: 'sleeper', seats: 120, price: 1250, img: '🚇' },
-      { id: 5, name: 'Tejas Express', code: '22119', from: 'Mumbai Central', to: 'Delhi Junction', dep: '09:10', arr: '23:45', duration: '14h 35m', class: 'ac3', seats: 52, price: 2350, img: '🚝' },
-      { id: 6, name: 'Humsafar Express', code: '12751', from: 'Mumbai Central', to: 'Delhi Junction', dep: '12:05', arr: '03:20', duration: '15h 15m', class: 'sleeper', seats: 88, price: 1350, img: '🚈' },
+    // ----- DATA : TTD Seva database (replica) -----
+    const sevas = [
+      { id: 1, name: 'Suprabhatam Seva', code: 'SP-01', from: 'Tirumala', to: 'Sri Venkateswara', dep: '03:00', arr: '04:00', duration: '1h', class: 'suprabhatam', seats: 120, price: 300, img: '🌅' },
+      { id: 2, name: 'Sahasranam Archana', code: 'SA-12', from: 'Tirumala', to: 'Sri Venkateswara', dep: '06:00', arr: '07:30', duration: '1.5h', class: 'sahasranam', seats: 80, price: 250, img: '🕉️' },
+      { id: 3, name: 'Archana Seva', code: 'AR-07', from: 'Tirumala', to: 'Sri Venkateswara', dep: '09:00', arr: '10:30', duration: '1.5h', class: 'archana', seats: 150, price: 200, img: '🌿' },
+      { id: 4, name: 'Kalyanam Seva', code: 'KL-03', from: 'Tirumala', to: 'Sri Venkateswara', dep: '11:00', arr: '13:00', duration: '2h', class: 'kalyanam', seats: 60, price: 500, img: '💐' },
+      { id: 5, name: 'Suprabhatam (Special)', code: 'SP-09', from: 'Tirumala', to: 'Sri Venkateswara', dep: '04:30', arr: '05:45', duration: '1.25h', class: 'suprabhatam', seats: 45, price: 450, img: '🌅' },
+      { id: 6, name: 'Archana (Group)', code: 'AR-22', from: 'Tirumala', to: 'Sri Venkateswara', dep: '14:00', arr: '15:30', duration: '1.5h', class: 'archana', seats: 90, price: 180, img: '🌿' },
     ];
 
-    // current selection
-    let selectedTrainId = null;
-    let passengerCount = 1;
+    let selectedSevaId = null;
+    let devoteeCount = 1;
 
-    // DOM refs
     const trainListEl = document.getElementById('trainList');
     const trainCountEl = document.getElementById('trainCount');
     const summaryPanel = document.getElementById('summaryPanel');
@@ -533,28 +532,21 @@
     const filterChips = document.querySelectorAll('#filterChips .chip');
     const searchBtn = document.getElementById('searchTrainsBtn');
     const fromInput = document.getElementById('fromStation');
-    const toInput = document.getElementById('toStation');
     const classSelect = document.getElementById('classSelect');
 
-    // Helper: render trains with optional filter
-    function renderTrains(filterClass = 'all', searchFrom = null, searchTo = null) {
-      let filtered = [...trains];
-      // filter by class
+    function renderSevas(filterClass = 'all', searchFrom = null) {
+      let filtered = [...sevas];
       if (filterClass !== 'all') {
         filtered = filtered.filter(t => t.class === filterClass);
       }
-      // filter by station (if provided)
       if (searchFrom) {
-        filtered = filtered.filter(t => t.from.toLowerCase().includes(searchFrom.toLowerCase()));
-      }
-      if (searchTo) {
-        filtered = filtered.filter(t => t.to.toLowerCase().includes(searchTo.toLowerCase()));
+        filtered = filtered.filter(t => t.name.toLowerCase().includes(searchFrom.toLowerCase()));
       }
 
-      trainCountEl.textContent = filtered.length + ' trains found';
+      trainCountEl.textContent = filtered.length + ' sevas found';
 
       if (filtered.length === 0) {
-        trainListEl.innerHTML = `<div style="padding:30px;text-align:center;background:#f8fafc;border-radius:24px;color:#64748b;"><i class="fas fa-train" style="font-size:32px;opacity:0.4;display:block;margin-bottom:12px;"></i> No trains match your search</div>`;
+        trainListEl.innerHTML = `<div style="padding:30px;text-align:center;background:#fcf6ed;border-radius:24px;color:#7a6452;"><i class="fas fa-temple-hindu" style="font-size:32px;opacity:0.4;display:block;margin-bottom:12px;"></i> No sevas match your search</div>`;
         return;
       }
 
@@ -566,11 +558,11 @@
         else if (t.seats < 50) { seatLabel = 'Limited'; seatClass = 'medium'; }
         else { seatLabel = 'Available'; seatClass = ''; }
 
-        const isSelected = (selectedTrainId === t.id);
+        const isSelected = (selectedSevaId === t.id);
         html += `
-          <div class="train-card" data-id="${t.id}" style="${isSelected ? 'border-color:#3b82f6;background:#f5f9ff;' : ''}">
-            <div class="train-info">
-              <div class="train-name">
+          <div class="seva-card" data-id="${t.id}" style="${isSelected ? 'border-color:#b76e2e;background:#fcf6ed;' : ''}">
+            <div class="seva-info">
+              <div class="seva-name">
                 ${t.img} ${t.name} <span class="code">${t.code}</span>
               </div>
               <div class="route">
@@ -581,9 +573,9 @@
               </div>
             </div>
             <div class="seat-status">
-              <span class="seat-badge ${seatClass}"><i class="fas fa-chair"></i> ${t.seats} seats</span>
+              <span class="seat-badge ${seatClass}"><i class="fas fa-chair"></i> ${t.seats} slots</span>
               <span class="seat-badge ${seatClass}">${seatLabel}</span>
-              <span class="price-tag">₹${t.price} <small>/ person</small></span>
+              <span class="price-tag">₹${t.price} <small>/ devotee</small></span>
               <button class="book-btn ${isSelected ? 'outline' : ''}" data-id="${t.id}">
                 ${isSelected ? '✓ Selected' : 'Book now'} <i class="fas fa-chevron-right"></i>
               </button>
@@ -593,115 +585,102 @@
       });
       trainListEl.innerHTML = html;
 
-      // attach book button events
-      document.querySelectorAll('.train-card .book-btn').forEach(btn => {
+      document.querySelectorAll('.seva-card .book-btn').forEach(btn => {
         btn.addEventListener('click', function(e) {
           e.stopPropagation();
           const id = parseInt(this.dataset.id);
-          selectTrain(id);
+          selectSeva(id);
         });
       });
 
-      // click on card also selects
-      document.querySelectorAll('.train-card').forEach(card => {
+      document.querySelectorAll('.seva-card').forEach(card => {
         card.addEventListener('click', function() {
           const id = parseInt(this.dataset.id);
-          selectTrain(id);
+          selectSeva(id);
         });
       });
     }
 
-    // select train
-    function selectTrain(id) {
-      const train = trains.find(t => t.id === id);
-      if (!train) return;
-      selectedTrainId = id;
-      // re-render to highlight
+    function selectSeva(id) {
+      const seva = sevas.find(t => t.id === id);
+      if (!seva) return;
+      selectedSevaId = id;
       const currentFilter = document.querySelector('#filterChips .chip.active')?.dataset.filter || 'all';
-      renderTrains(currentFilter, fromInput.value, toInput.value);
-      // update summary
+      renderSevas(currentFilter, fromInput.value);
       summaryPanel.classList.add('visible');
-      summaryTrain.textContent = train.name + ' (' + train.code + ')';
-      summaryRoute.textContent = train.from + ' → ' + train.to;
-      summaryClass.textContent = train.class.toUpperCase();
-      summaryPassengers.textContent = passengerCount;
-      const total = train.price * passengerCount;
+      summaryTrain.textContent = seva.name + ' (' + seva.code + ')';
+      summaryRoute.textContent = 'Tirumala';
+      summaryClass.textContent = seva.class.toUpperCase();
+      summaryPassengers.textContent = devoteeCount;
+      const total = seva.price * devoteeCount;
       summaryTotal.textContent = '₹' + total.toLocaleString('en-IN');
       bookingMessage.style.display = 'none';
     }
 
-    // filter chips
     filterChips.forEach(chip => {
       chip.addEventListener('click', function() {
         filterChips.forEach(c => c.classList.remove('active'));
         this.classList.add('active');
         const filter = this.dataset.filter;
-        renderTrains(filter, fromInput.value, toInput.value);
+        renderSevas(filter, fromInput.value);
       });
     });
 
-    // search button
     searchBtn.addEventListener('click', function() {
       const filter = document.querySelector('#filterChips .chip.active')?.dataset.filter || 'all';
-      renderTrains(filter, fromInput.value, toInput.value);
+      renderSevas(filter, fromInput.value);
     });
 
-    // Enter key on inputs triggers search
-    [fromInput, toInput, classSelect].forEach(el => {
+    [fromInput, classSelect].forEach(el => {
       el.addEventListener('keyup', (e) => { if (e.key === 'Enter') searchBtn.click(); });
     });
 
-    // summary: confirm booking
     document.getElementById('confirmBooking').addEventListener('click', function() {
-      if (!selectedTrainId) {
+      if (!selectedSevaId) {
         bookingMessage.style.display = 'block';
-        bookingMessage.innerHTML = '<i class="fas fa-circle-exclamation" style="color:#b45309;"></i> Please select a train first.';
+        bookingMessage.innerHTML = '<i class="fas fa-circle-exclamation" style="color:#b76e2e;"></i> Please select a seva first.';
         bookingMessage.style.color = '#991b1b';
         return;
       }
-      const train = trains.find(t => t.id === selectedTrainId);
-      if (!train) return;
+      const seva = sevas.find(t => t.id === selectedSevaId);
+      if (!seva) return;
       bookingMessage.style.display = 'block';
-      bookingMessage.innerHTML = `<i class="fas fa-circle-check" style="color:#16a34a;"></i> Booking confirmed for ${train.name} (${passengerCount} passenger${passengerCount > 1 ? 's' : ''}) · Total ₹${(train.price * passengerCount).toLocaleString('en-IN')}`;
-      bookingMessage.style.color = '#166534';
-      // optional: reset selection? no, keep it.
+      bookingMessage.innerHTML = `<i class="fas fa-circle-check" style="color:#b76e2e;"></i> Seva confirmed for ${seva.name} (${devoteeCount} devotee${devoteeCount > 1 ? 's' : ''}) · Total ₹${(seva.price * devoteeCount).toLocaleString('en-IN')}`;
+      bookingMessage.style.color = '#2d5a2a';
     });
 
     document.getElementById('cancelBooking').addEventListener('click', function() {
-      selectedTrainId = null;
+      selectedSevaId = null;
       summaryPanel.classList.remove('visible');
       bookingMessage.style.display = 'none';
-      // re-render to remove highlight
       const currentFilter = document.querySelector('#filterChips .chip.active')?.dataset.filter || 'all';
-      renderTrains(currentFilter, fromInput.value, toInput.value);
+      renderSevas(currentFilter, fromInput.value);
     });
 
-    // toggle summary panel (show/hide)
     document.getElementById('showSummaryBtn').addEventListener('click', function() {
       if (summaryPanel.classList.contains('visible')) {
         summaryPanel.classList.remove('visible');
       } else {
-        if (selectedTrainId) {
+        if (selectedSevaId) {
           summaryPanel.classList.add('visible');
         } else {
-          alert('Please select a train first.');
+          alert('Please select a seva first.');
         }
       }
     });
 
-    // passenger count can be changed (simple increment/decrement via click on summary)
     summaryPassengers.addEventListener('click', function() {
-      if (!selectedTrainId) return;
-      passengerCount = passengerCount === 1 ? 2 : (passengerCount === 2 ? 3 : 1);
-      const train = trains.find(t => t.id === selectedTrainId);
-      if (train) {
-        summaryPassengers.textContent = passengerCount;
-        summaryTotal.textContent = '₹' + (train.price * passengerCount).toLocaleString('en-IN');
+      if (!selectedSevaId) return;
+      devoteeCount = devoteeCount === 1 ? 2 : (devoteeCount === 2 ? 3 : 1);
+      const seva = sevas.find(t => t.id === selectedSevaId);
+      if (seva) {
+        summaryPassengers.textContent = devoteeCount;
+        summaryTotal.textContent = '₹' + (seva.price * devoteeCount).toLocaleString('en-IN');
       }
     });
 
     // init
-    renderTrains('all', 'Mumbai Central', 'Delhi Junction');
+    renderSevas('all', 'Tirumala');
   })();
 </script>
 </body>
